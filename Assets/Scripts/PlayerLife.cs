@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerLife : Damageable
 {
+    public Transform AimPoint;
+
     public override void TakeDamage(float Damage)
     {
         base.TakeDamage(Damage);

@@ -10,15 +10,18 @@ public class EnemyTurret : Damageable
     public float MaxShootDistance;
     public float RateOfFire;
 
+    private Transform _playerAimPoint;
+
     private void Start()
     {
+        _playerAimPoint = Constants.Player.GetComponent<PlayerLife>().AimPoint;
         StartCoroutine(Attack());
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Constants.Player.transform, Vector3.up);
+        transform.LookAt(_playerAimPoint, Vector3.up);
     }
 
     public override void TakeDamage(float Damage)
@@ -35,6 +38,8 @@ public class EnemyTurret : Damageable
 
     IEnumerator Attack()
     {
+        yield return new WaitForSeconds(1f);
+
         while (true)
         {
             // TODO only do it if distance with player is short enough
@@ -42,7 +47,7 @@ public class EnemyTurret : Damageable
 
 
             // if it can see player, shoot at it
-            var attackDirection = (Constants.Player.transform.position - CanonTip.position) * 100;
+            var attackDirection = (_playerAimPoint.position - CanonTip.position) * 100;
             Debug.DrawRay(CanonTip.position, attackDirection, Color.red);
             if (Physics.Raycast(CanonTip.position, attackDirection, out var hitInfo, MaxShootDistance, LasersHitLayers))
             {

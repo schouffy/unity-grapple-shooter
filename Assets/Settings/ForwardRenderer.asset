@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Carriable Opaque
+  m_Name: PlayerHands Opaque
   m_EditorClassIdentifier: 
+  m_Active: 1
   settings:
-    passTag: Carriable Opaque
+    passTag: PlayerHands Opaque
     Event: 300
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 2048
+        m_Bits: 256
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
@@ -53,6 +54,7 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -6493468834648502851}
   - {fileID: 5895698785024158044}
+  m_RendererFeatureMap: 
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -63,10 +65,10 @@ MonoBehaviour:
     fallbackErrorPS: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 1847
+    m_Bits: 1591
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 1847
+    m_Bits: 1591
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -74,6 +76,7 @@ MonoBehaviour:
     passOperation: 0
     failOperation: 0
     zFailOperation: 0
+  m_ShadowTransparentReceive: 1
 --- !u!114 &5895698785024158044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,16 +87,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Carriable Opaque 2
+  m_Name: PlayerHands Opaque 2
   m_EditorClassIdentifier: 
+  m_Active: 1
   settings:
-    passTag: Carriable Opaque 2
+    passTag: PlayerHands Opaque 2
     Event: 300
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 2048
+        m_Bits: 256
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0

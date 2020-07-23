@@ -15,7 +15,8 @@ namespace Player
         public float airFriction;
 
         [Header("Rotation")]
-        public float rotationSensitivity;
+        public float MouseSensitivityX;
+        public float MouseSensitivityY;
         public float rotationBounds;
 
         [Header("Gravity")]
@@ -35,12 +36,15 @@ namespace Player
         public Camera playerCamera;
         public Transform playerCameraHolder;
         public Rigidbody playerRigidBody;
+        public GrapplingHook GrapplingHook;
 
         private float _xRotation;
         private float _yRotation;
         private float _grounded;
-        private bool _realGrounded;
+        public bool _realGrounded;
         private float _jumpCooldown;
+
+        private Collider[] _colliderList = new Collider[100];
 
         private void Start()
         {
@@ -63,8 +67,7 @@ namespace Player
         private void GroundCheck()
         {
             _grounded -= Time.fixedDeltaTime;
-            var colliderList = new Collider[100];
-            var size = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, checkYOffset, 0), checkRadius, colliderList, whatIsGround);
+            var size = Physics.OverlapSphereNonAlloc(transform.position + new Vector3(0, checkYOffset, 0), checkRadius, _colliderList, whatIsGround);
             _realGrounded = size > 0;
             if (_realGrounded)
                 _grounded = groundTimer;
@@ -99,11 +102,11 @@ namespace Player
         private void Rotation()
         {
             Cursor.lockState = CursorLockMode.Locked;
-            var mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X") * MouseSensitivityX, Input.GetAxisRaw("Mouse Y") * MouseSensitivityY);
 
-            _xRotation -= mouseDelta.y * rotationSensitivity;
+            _xRotation -= mouseDelta.y;
             _xRotation = Mathf.Clamp(_xRotation, -rotationBounds, rotationBounds);
-            _yRotation += mouseDelta.x * rotationSensitivity;
+            _yRotation += mouseDelta.x;
 
             transform.rotation = Quaternion.Euler(0, _yRotation, 0);
             playerCameraHolder.localRotation = Quaternion.Euler(_xRotation, 0, 0);
