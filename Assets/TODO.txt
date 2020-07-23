@@ -12,20 +12,23 @@ Contrôles
 	
 
 ================== A faire 
-- Récupérer le code du grapin de bob
-- ajouter une arme main gauche, gérer les tirs (projectiles rapides mais pas physics, plutôt avec raycasts)
-- ennemi statique
-- pouvoir tuer et être tué
-- collectible
 - polish les contrôles fps
+- système de messaging pour les projectiles, collectibles, UI avec vie et score, mort du joueur etc...
 - ennemi mobile
-- vaisseau qui vient chercher pour extraction
+- map de test
+- conditions de victoire, vaisseau qui vient chercher pour extraction
+- améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish
+	- arme et grappin avec spring
 
 
 
+- précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
+crosshair contextuel (vert si on peut grappin, rouge sinon)
 respawn d'ennemi ?
 plusieurs types d'ennemis (rapides, volants, hitscans, suicides,..)
 vault, climb
 dash
 grappin sur ennemi pour dash dessus et le buter
+grappin sur ennemi pour l'attirer à nous
 environnement (explosifs, physique,..)
+surfaces où on peut pas grapin
