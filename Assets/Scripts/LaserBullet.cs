@@ -22,9 +22,11 @@ public class LaserBullet : MonoBehaviour, IPoolable
     {
         _previousPosition = transform.position;
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.forward * 1000, Speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward * 1000, Speed * Time.deltaTime);
 
         // raycast to previous position and check if anything is hit
+        //Debug.DrawLine(_previousPosition, transform.position, Color.yellow, 1f);
+
         if (Physics.SphereCast(new Ray(_previousPosition, transform.position - _previousPosition), Thickness, 
             out var hitInfo, (transform.position - _previousPosition).magnitude, WhatToHit))
         {

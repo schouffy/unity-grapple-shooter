@@ -51,7 +51,7 @@ MonoBehaviour:
   LasersHitLayers:
     serializedVersion: 2
     m_Bits: 257
-  MaxShootDistance: 10
+  MaxShootDistance: 30
   RateOfFire: 3
 --- !u!65 &7580246774464591831
 BoxCollider:

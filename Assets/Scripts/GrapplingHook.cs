@@ -75,6 +75,7 @@ public class GrapplingHook : MonoBehaviour
         var divided = raycastRadius / 2f;
         var possible = new List<RaycastHit>(raycastCount * raycastCount);
         var cam = player.playerCamera.transform;
+        bool hasHitUngrappable = false;
 
         for (var x = 0; x < raycastCount; x++)
         {
@@ -85,16 +86,20 @@ public class GrapplingHook : MonoBehaviour
                     Mathf.Lerp(-divided, divided, y / (float)(raycastCount - 1))
                 );
 
-                if (!Physics.Raycast(cam.position + cam.right * pos.x + cam.up * pos.y, cam.forward, out var hitInfo, maxDistance)) continue;
+                if (!Physics.Raycast(cam.position + cam.right * pos.x + cam.up * pos.y, cam.forward, out var hitInfo, maxDistance + 20)) continue;
 
                 var distance = Vector3.Distance(cam.position, hitInfo.point);
                 if (whatToGrapple.value != (whatToGrapple.value | (1 << hitInfo.transform.gameObject.layer)))
                 {
-                    Debug.Log("TODO Can't grapple to this. Do some visual FX.");
+                    hasHitUngrappable = true;
                     continue;
                 }
                 if (distance < minDistance) continue;
-                if (distance > maxDistance) continue;
+                if (distance > maxDistance)
+                {
+                    Debug.Log($"Too far. ({distance} m)");
+                    continue;
+                }
 
                 possible.Add(hitInfo);
             }
@@ -127,6 +132,10 @@ public class GrapplingHook : MonoBehaviour
 
             hit = closest;
             return true;
+        }
+        else if (hasHitUngrappable)
+        {
+            Debug.Log("TODO Can't grapple to this. Do some visual FX.");
         }
 
         hit = new RaycastHit();

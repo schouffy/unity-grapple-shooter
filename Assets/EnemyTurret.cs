@@ -54,7 +54,7 @@ public class EnemyTurret : Damageable
                 if (hitInfo.collider.gameObject.tag == Constants.PlayerTag)
                 {
                     // Fire
-                    ObjectPool.Instance.SpawnFromPool(ProjectileType, CanonTip.position, Quaternion.LookRotation(attackDirection, Vector3.up));
+                    ObjectPool.Instance.SpawnFromPool(ProjectileType, CanonTip.position, CanonTip.rotation);
                     yield return new WaitForSeconds(1f / RateOfFire);
                 }
             }

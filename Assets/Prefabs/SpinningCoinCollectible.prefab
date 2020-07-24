@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7080292520001485161}
   - component: {fileID: 7080292520001485160}
   - component: {fileID: 7080292520001485167}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7080292520437754880}
   - component: {fileID: 7080292520437754887}
   - component: {fileID: 7080292520437754881}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpinningCoinCollectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.74
+  m_Radius: 0.92
   m_Center: {x: 0, y: 0.54, z: 0}
 --- !u!114 &7080292520437754881
 MonoBehaviour:
