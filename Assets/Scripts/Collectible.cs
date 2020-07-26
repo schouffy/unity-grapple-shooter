@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
     {
         if (other.tag == Constants.PlayerTag)
         {
-            EventManager.TriggerEvent(EventType.GrabCollectible, new CollectibleEventParam { Collectible = this });
+            EventManager.TriggerEvent(EventType.CollectibleAcquired, new IntegerEventParam { Value = Value });
 
             Destroy(gameObject);
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,19 +39,22 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        EventManager.StartListening(EventType.GrabCollectible, (collectible) => this.PlayerCollected(((CollectibleEventParam)collectible).Collectible));
-        EventManager.StartListening(EventType.GameOver, (p) => this.GameOver(p));
+        EventManager.StartListening(EventType.CollectibleAcquired, (collectible) => this.PlayerCollected(((IntegerEventParam)collectible).Value));
+        EventManager.StartListening(EventType.GameOver, (p) => this.GameOver());
+        EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel());
     }
 
     void OnDisable()
     {
-        EventManager.StopListening(EventType.GrabCollectible, (collectible) => this.PlayerCollected(((CollectibleEventParam)collectible).Collectible));
-        EventManager.StopListening(EventType.GameOver, (p) => this.GameOver(p));
+        EventManager.StopListening(EventType.CollectibleAcquired, (collectible) => this.PlayerCollected(((IntegerEventParam)collectible).Value));
+        EventManager.StopListening(EventType.GameOver, (p) => this.GameOver());
+        EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel());
     }
 
-    private void PlayerCollected(Collectible collectible)
+    private void PlayerCollected(int value)
     {
-        PlayerScore += collectible.Value;
+        PlayerScore += value;
+        EventManager.TriggerEvent(EventType.PlayerScoreUpdated, new IntegerEventParam { Value = PlayerScore });
         Debug.Log("Collectible acquired. Score: " + PlayerScore);
 
         if (PlayerScore >= PlayerScoreToReach && !_extractionShipSummoned)
@@ -60,13 +64,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GameOver(EventParam eventParam)
+    private void GameOver()
+    {
+        StartCoroutine(_GameOver());
+    }
+
+    IEnumerator _GameOver()
     {
         Debug.Log("Player died. Game over");
-        // enemies stop attacking
-        // show some UI
-        // press to retry
 
+        yield return new WaitForSeconds(1.5f);
+        while (true)
+        {
+            if (Input.anyKey)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            yield return null;
+        }
+    }
 
+    private void EndLevel()
+    {
+        StartCoroutine(_EndLevel());
+    }
+
+    IEnumerator _EndLevel()
+    {
+        Debug.Log("end level");
+
+        yield return new WaitForSeconds(1.5f);
+        while (true)
+        {
+            if (Input.anyKey)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            yield return null;
+        }
     }
 }

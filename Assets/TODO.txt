@@ -15,7 +15,6 @@ Contrôles
 
 
 
-
 - conditions de victoire, vaisseau qui vient chercher pour extraction
 
 
@@ -42,7 +41,7 @@ Contrôles
 - améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish
 	- arme et grappin avec spring
 
-
+- ennemis drop de la vie
 - surfaces qui refusent le grappin: faire du feedback visuel - grappin qui échoue à connecter par exemple)
 - précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
 crosshair contextuel (vert si on peut grappin, rouge sinon)

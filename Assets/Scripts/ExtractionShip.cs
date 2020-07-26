@@ -6,15 +6,15 @@ public class ExtractionShip : MonoBehaviour
 {
     void OnEnable()
     {
-        EventManager.StartListening(EventType.SummonExtractionShip, (p) => this.Summon(p));
+        EventManager.StartListening(EventType.SummonExtractionShip, (p) => this.Summon());
     }
 
     void OnDisable()
     {
-        EventManager.StopListening(EventType.SummonExtractionShip, (p) => this.Summon(p));
+        EventManager.StopListening(EventType.SummonExtractionShip, (p) => this.Summon());
     }
 
-    void Summon(EventParam eventParam)
+    void Summon()
     {
         Debug.Log("Extraction ship is on the way");
 
@@ -26,6 +26,7 @@ public class ExtractionShip : MonoBehaviour
     {
         if (other.tag == Constants.PlayerTag)
         {
+            EventManager.TriggerEvent(EventType.LevelEnd, null);
             // player is on ship, can't move anymore
             // ship moves away
             // fade to black

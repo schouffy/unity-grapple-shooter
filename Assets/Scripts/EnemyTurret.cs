@@ -12,6 +12,21 @@ public class EnemyTurret : Damageable
 
     private Transform _playerAimPoint;
 
+    void OnEnable()
+    {
+        EventManager.StartListening(EventType.GameOver, (p) => this.DisableAI(p));
+    }
+
+    void OnDisable()
+    {
+        EventManager.StopListening(EventType.GameOver, (p) => this.DisableAI(p));
+    }
+
+    void DisableAI(EventParam eventParam)
+    {
+        this.enabled = false;
+    }
+
     private void Start()
     {
         _playerAimPoint = Constants.Player.GetComponent<PlayerLife>().AimPoint;
@@ -40,7 +55,7 @@ public class EnemyTurret : Damageable
     {
         yield return new WaitForSeconds(1f);
 
-        while (true)
+        while (this.enabled)
         {
             // TODO only do it if distance with player is short enough
 

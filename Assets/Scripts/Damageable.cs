@@ -8,9 +8,15 @@ public class Damageable : MonoBehaviour
 
     public virtual void TakeDamage(float Damage)
     {
+        if (Health <= 0)
+            return;
+
         Health -= Damage;
 
-        if (Health <= 0)
+        if (Health < 0)
+            Health = 0;
+
+        if (Health == 0)
             Die();
     }
 
