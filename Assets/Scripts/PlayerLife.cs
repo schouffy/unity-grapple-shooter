@@ -14,6 +14,6 @@ public class PlayerLife : Damageable
 
     public override void Die()
     {
-        Debug.Log("Player died");
+        EventManager.TriggerEvent(EventType.GameOver, null);
     }
 }

@@ -14,6 +14,8 @@ public class Constants
         PhysicsBullet
     }
 
+    
+
     public static String PlayerTag => "Player";
     private static GameObject _playerObject = null;
     public static GameObject Player
