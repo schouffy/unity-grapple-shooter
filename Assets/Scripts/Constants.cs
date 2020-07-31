@@ -11,7 +11,8 @@ public class Constants
     {
         PlayerLaserBullet,
         TurretLaserBullet,
-        PhysicsBullet
+        PhysicsBullet,
+        LaserGenericImpact
     }
 
     

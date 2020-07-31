@@ -14,12 +14,11 @@ Contrôles
 ================== A faire 
 
 
-impact sur mur
+modèle tourelle
 impact sur cible
 explosion
 
 
-shader "non grapinable"
 shader pour faire bouger l'herbe
 qques props ? (statue, pilier)
 skybox, brouillard & nuages
@@ -45,6 +44,7 @@ poussière et particules dans l'air
 	- surfaces qui refusent le grappin: faire du feedback visuel - grappin qui échoue à connecter par exemple)
 
 
+effet de vitesse quand on grapine vite (particules, accélération etc)
 - ennemis drop de la vie
 - précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
 crosshair contextuel (vert si on peut grappin, rouge sinon)

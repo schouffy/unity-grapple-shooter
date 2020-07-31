@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyTurret : Damageable 
 {
     public Transform CanonTip;
+    public Transform Turret;
+    public Transform Barrel;
     public Constants.PoolTag ProjectileType;
     public LayerMask LasersHitLayers;
     public float MaxShootDistance;
@@ -36,7 +38,11 @@ public class EnemyTurret : Damageable
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(_playerAimPoint, Vector3.up);
+        // rotate Turret on Y axis
+        var pointToRotateXZTo = new Vector3(_playerAimPoint.position.x, Turret.position.y, _playerAimPoint.position.z);
+        Turret.LookAt(pointToRotateXZTo, Vector3.up);
+        // Rotate barrel on X axis
+        Barrel.LookAt(_playerAimPoint, Vector3.up);
     }
 
     public override void TakeDamage(float Damage)

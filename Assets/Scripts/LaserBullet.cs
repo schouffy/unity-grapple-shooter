@@ -42,14 +42,17 @@ public class LaserBullet : MonoBehaviour, IPoolable
     private void DealDamage(RaycastHit hitInfo)
     {
         var objectToDamage = hitInfo.collider.gameObject;
-        // FX
 
         var damageable = objectToDamage.GetComponent<Damageable>();
         if (damageable != null)
         {
             damageable.TakeDamage(Damage);
         }
+        else
+        {
+            // generic FX
+            ObjectPool.Instance.SpawnFromPool(Constants.PoolTag.LaserGenericImpact, hitInfo.point, Quaternion.LookRotation(hitInfo.normal, Vector3.up));
+        }
     }
-
 
 }
