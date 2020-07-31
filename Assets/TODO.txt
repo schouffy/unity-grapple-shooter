@@ -14,9 +14,16 @@ Contrôles
 ================== A faire 
 
 
-shader "non grapinable"
-qques props ? (statue, pilier)
+impact sur mur
+impact sur cible
+explosion
 
+
+shader "non grapinable"
+shader pour faire bouger l'herbe
+qques props ? (statue, pilier)
+skybox, brouillard & nuages
+poussière et particules dans l'air
 
 
 
