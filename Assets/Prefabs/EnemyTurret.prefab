@@ -215,6 +215,10 @@ MonoBehaviour:
     m_Bits: 257
   MaxShootDistance: 30
   RateOfFire: 3
+  ImpactPrefab: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
+  ExplosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
 --- !u!65 &1086976319932107281
 BoxCollider:
   m_ObjectHideFlags: 0

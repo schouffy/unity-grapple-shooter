@@ -11,9 +11,9 @@ public class PlayerLife : Damageable
         EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new IntegerEventParam() { Value = (int)Health });
     }
 
-    public override void TakeDamage(float Damage)
+    public override void TakeDamage(float Damage, Vector3 position)
     {
-        base.TakeDamage(Damage);
+        base.TakeDamage(Damage, position);
         //Debug.Log("Taken " + Damage + " damage");
 
         EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new IntegerEventParam() { Value = (int)Health });

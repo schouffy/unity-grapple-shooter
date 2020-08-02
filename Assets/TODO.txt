@@ -14,17 +14,12 @@ Contrôles
 ================== A faire 
 
 
-modèle tourelle
-impact sur cible
-explosion
-
-
+cadavre et physics
+immeubles immergés (mousse sur les bords via shader ?)
+nuages
 shader pour faire bouger l'herbe
-qques props ? (statue, pilier)
-skybox, brouillard & nuages
-poussière et particules dans l'air
 
-
+mourir quand on chute
 
 - polish les contrôles fps
 	- glisse trop au sol

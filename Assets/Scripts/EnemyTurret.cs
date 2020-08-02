@@ -11,6 +11,8 @@ public class EnemyTurret : Damageable
     public LayerMask LasersHitLayers;
     public float MaxShootDistance;
     public float RateOfFire;
+    public GameObject ImpactPrefab;
+    public GameObject ExplosionPrefab;
 
     private Transform _playerAimPoint;
 
@@ -45,16 +47,16 @@ public class EnemyTurret : Damageable
         Barrel.LookAt(_playerAimPoint, Vector3.up);
     }
 
-    public override void TakeDamage(float Damage)
+    public override void TakeDamage(float Damage, Vector3 position)
     {
-        base.TakeDamage(Damage);
-        // FX
+        Instantiate(ImpactPrefab, position, Quaternion.identity);
+        base.TakeDamage(Damage, position);
     }
 
     public override void Die()
     {
+        Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
         base.Die();
-        // FX
     }
 
     IEnumerator Attack()
