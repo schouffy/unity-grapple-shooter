@@ -15,8 +15,9 @@ Contrôles
 
 
 cadavre et physics
-immeubles immergés (mousse sur les bords via shader ?)
-nuages
+immeubles immergés (utiliser polybrush)
+Améliorer l'eau (mousse sur les bords via shader ?)
+nuages (particles)
 shader pour faire bouger l'herbe
 
 mourir quand on chute
