@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTurret : Damageable 
+public class EnemyTurret : EnemyAI 
 {
     public Transform CanonTip;
     public Transform Turret;
@@ -14,26 +14,9 @@ public class EnemyTurret : Damageable
     public GameObject ImpactPrefab;
     public GameObject ExplosionPrefab;
 
-    private Transform _playerAimPoint;
-
-    void OnEnable()
+    protected override void Start()
     {
-        EventManager.StartListening(EventType.GameOver, (p) => this.DisableAI(p));
-    }
-
-    void OnDisable()
-    {
-        EventManager.StopListening(EventType.GameOver, (p) => this.DisableAI(p));
-    }
-
-    void DisableAI(EventParam eventParam)
-    {
-        this.enabled = false;
-    }
-
-    private void Start()
-    {
-        _playerAimPoint = Constants.Player.GetComponent<PlayerLife>().AimPoint;
+        base.Start();
         StartCoroutine(Attack());
     }
 

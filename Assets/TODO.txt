@@ -14,10 +14,16 @@ Contrôles
 ================== A faire 
 
 
+Améliorer l'eau
+	Mousse sur les bords via particles (texture blanc transparent)
+	=> Appliquer sur les prefabs quand j'aurai push
+nuages
+	sprites
+	=> Ajouter les nuages dans la scene quand j'aurai push
 
-immeubles immergés (utiliser polybrush)
-Améliorer l'eau (mousse sur les bords via shader ?)
-nuages (particles)
+plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
+
+ennemis détruits et physics
 
 mourir quand on chute
 respawn quand on meurt
@@ -43,16 +49,13 @@ Draft du level-1
 	- surfaces qui refusent le grappin: faire du feedback visuel - grappin qui échoue à connecter par exemple)
 	etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
 
-cadavre et physics
 shader pour faire bouger l'herbe
-
-
 effet de vitesse quand on grapine vite (particules, accélération etc)
 - ennemis drop de la vie
 - précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
 crosshair contextuel (vert si on peut grappin, rouge sinon)
 respawn d'ennemi ?
-plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
+
 vault, climb
 dash
 grappin sur ennemi pour dash dessus et le buter
