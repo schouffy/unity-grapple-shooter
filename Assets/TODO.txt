@@ -20,6 +20,7 @@ Améliorer l'eau
 nuages
 	sprites
 	=> Ajouter les nuages dans la scene quand j'aurai push
+
 plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
 
 ennemis détruits et physics

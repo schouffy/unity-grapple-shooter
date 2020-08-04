@@ -15,8 +15,6 @@ public class Constants
         LaserGenericImpact
     }
 
-    
-
     public static String PlayerTag => "Player";
     private static GameObject _playerObject = null;
     public static GameObject Player
@@ -28,4 +26,10 @@ public class Constants
             return _playerObject;
         }
     }
+}
+
+public enum EnemyStatus
+{
+    Idle,
+    Attacking
 }
