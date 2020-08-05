@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject GameOverScreen;
     public GameObject LevelEndScreen;
+    public GameObject CheckpointReachedScreen;
     public UnityEngine.UI.Text Health;
     public UnityEngine.UI.Text Score;
 
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
         EventManager.StartListening(EventType.PlayerScoreUpdated, (p) => this.UpdateScore(((IntegerEventParam)p).Value));
         EventManager.StartListening(EventType.GameOver, (p) => this.GameOver());
         EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel());
+        EventManager.StartListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
     }
 
     void OnDisable()
@@ -28,6 +30,7 @@ public class UIManager : MonoBehaviour
         EventManager.StopListening(EventType.PlayerScoreUpdated, (p) => this.UpdateScore(((IntegerEventParam)p).Value));
         EventManager.StopListening(EventType.GameOver, (p) => this.GameOver());
         EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel());
+        EventManager.StopListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
     }
 
     void UpdateHealth(int health)
@@ -52,6 +55,17 @@ public class UIManager : MonoBehaviour
         Health.gameObject.SetActive(false);
         Score.gameObject.SetActive(false);
         LevelEndScreen.SetActive(true);
+    }
+
+    void CheckpointReached()
+    {
+        StartCoroutine(_CheckpointReached());
+    }
+    IEnumerator _CheckpointReached()
+    {
+        CheckpointReachedScreen.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        CheckpointReachedScreen.SetActive(false);
     }
 
 }

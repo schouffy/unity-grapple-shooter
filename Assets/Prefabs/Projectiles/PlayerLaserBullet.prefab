@@ -99,7 +99,7 @@ MonoBehaviour:
   MaxLifetime: 2
   WhatToHit:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 1025
 --- !u!108 &8871784557116978524
 Light:
   m_ObjectHideFlags: 0

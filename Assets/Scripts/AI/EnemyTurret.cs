@@ -53,14 +53,14 @@ public class EnemyTurret : EnemyAI
 
 
             // if it can see player, shoot at it
-            var attackDirection = (_playerAimPoint.position - CanonTip.position) * 100;
+            var attackDirection = (_playerAimPoint.position - CanonTip.position);// * 100;
             Debug.DrawRay(CanonTip.position, attackDirection, Color.red);
             if (Physics.Raycast(CanonTip.position, attackDirection, out var hitInfo, MaxShootDistance, LasersHitLayers))
             {
                 if (hitInfo.collider.gameObject.tag == Constants.PlayerTag)
                 {
                     // Fire
-                    ObjectPool.Instance.SpawnFromPool(ProjectileType, CanonTip.position, CanonTip.rotation);
+                    ObjectPool.Instance.SpawnFromPool(ProjectileType, CanonTip.position, Quaternion.LookRotation(attackDirection, Vector3.up));
                     yield return new WaitForSeconds(1f / RateOfFire);
                 }
             }

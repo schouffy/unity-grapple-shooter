@@ -8,12 +8,12 @@ public abstract class EnemyAI : Damageable
 
     void OnEnable()
     {
-        EventManager.StartListening(EventType.GameOver, (p) => this.DisableAI(p));
+        EventManager.StartListening(EventType.GameOver, this.DisableAI);
     }
 
     void OnDisable()
     {
-        EventManager.StopListening(EventType.GameOver, (p) => this.DisableAI(p));
+        EventManager.StopListening(EventType.GameOver, this.DisableAI);
     }
 
     void DisableAI(EventParam eventParam)
@@ -24,5 +24,11 @@ public abstract class EnemyAI : Damageable
     protected virtual void Start()
     {
         _playerAimPoint = Constants.Player.GetComponent<PlayerLife>().AimPoint;
+    }
+
+    public override void Die()
+    {
+        OnDisable();
+        base.Die();
     }
 }

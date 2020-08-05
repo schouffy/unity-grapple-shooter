@@ -85,8 +85,8 @@ public class FlyingEnemy : EnemyAI
         while (this.enabled)
         {
             var barrelTip = GetNextBarrelTip();
-            var attackDirection = (_playerAimPoint.position - barrelTip.position) * 100;
-            var canCast = Physics.Raycast(barrelTip.position, /*0.3f,*/ attackDirection, out var hitInfo, 100, LasersHitLayers);
+            var attackDirection = (_playerAimPoint.position - barrelTip.position);
+            var canCast = Physics.SphereCast(transform.position, 0.5f, _playerAimPoint.position - transform.position, out var hitInfo, 100, LasersHitLayers);
             bool canSeePlayer = canCast && hitInfo.collider != null && hitInfo.collider.gameObject.tag == Constants.PlayerTag;
 
             if (canSeePlayer && Vector3.Distance(transform.position, _playerAimPoint.position) < MaxShootDistance)
@@ -96,7 +96,7 @@ public class FlyingEnemy : EnemyAI
                 if (hitInfo.collider.gameObject.tag == Constants.PlayerTag)
                 {
                     // Fire
-                    ObjectPool.Instance.SpawnFromPool(ProjectileType, barrelTip.position, barrelTip.rotation);
+                    ObjectPool.Instance.SpawnFromPool(ProjectileType, barrelTip.position, Quaternion.LookRotation(attackDirection, Vector3.up));
                     yield return new WaitForSeconds(1f / RateOfFire);
                 }
             }
@@ -108,10 +108,10 @@ public class FlyingEnemy : EnemyAI
             else
             {
                 // if any obstacle to move or shoot at player, move in a random direction until player is visible
-                if (Vector3.Distance(_currentPatrollingDestination, transform.position) < 1)
+                if (Vector3.Distance(_currentPatrollingDestination, transform.position) < 2)
                 {
                     // Get a new destination around the starting point
-                    _currentPatrollingDestination = GetRandomPointAround(transform.position, 8f);
+                    _currentPatrollingDestination = GetRandomPointAround(transform.position, 20f);
                 }
 
                 // move to _currentPatrollingDestination

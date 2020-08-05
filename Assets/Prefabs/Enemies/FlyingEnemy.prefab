@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7335703701929712550}
   - component: {fileID: 1255821596499123222}
   - component: {fileID: 2945476429554996581}
-  - component: {fileID: 639966265057298507}
   m_Layer: 0
   m_Name: wing (3)
   m_TagString: Untagged
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &639966265057298507
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630878801002232180}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &994425911331953012
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +91,6 @@ GameObject:
   - component: {fileID: 6755921721478639149}
   - component: {fileID: 719123999258793477}
   - component: {fileID: 5624317967793188238}
-  - component: {fileID: 5852096021725069582}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -175,19 +160,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5852096021725069582
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994425911331953012}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3170297731679318939
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +171,6 @@ GameObject:
   - component: {fileID: 3758283982476694763}
   - component: {fileID: 9149688560552081707}
   - component: {fileID: 4408876404607174137}
-  - component: {fileID: 4371146693896026205}
   m_Layer: 0
   m_Name: wing
   m_TagString: Untagged
@@ -269,19 +240,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4371146693896026205
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3170297731679318939}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3461099160045685925
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +281,6 @@ GameObject:
   - component: {fileID: 7619316509378456998}
   - component: {fileID: 4271115359066538525}
   - component: {fileID: 3108260382808203782}
-  - component: {fileID: 1844378832396731714}
   m_Layer: 0
   m_Name: wing (1)
   m_TagString: Untagged
@@ -393,19 +350,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1844378832396731714
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3536407607454269248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4848991070374470878
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +361,6 @@ GameObject:
   - component: {fileID: 8700040031523664924}
   - component: {fileID: 4713230916807659179}
   - component: {fileID: 1303072106948453095}
-  - component: {fileID: 7213131241711348315}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -487,19 +430,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7213131241711348315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4848991070374470878}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5188353771094445805
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +441,6 @@ GameObject:
   - component: {fileID: 8128707453104885735}
   - component: {fileID: 3228092553739685249}
   - component: {fileID: 592179589331215076}
-  - component: {fileID: 4483682216211136443}
   m_Layer: 0
   m_Name: wing (2)
   m_TagString: Untagged
@@ -581,19 +510,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4483682216211136443
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188353771094445805}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5363881388397544770
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +521,6 @@ GameObject:
   - component: {fileID: 848639723873807019}
   - component: {fileID: 7736487702179002223}
   - component: {fileID: 7908004673049952948}
-  - component: {fileID: 913091981032955748}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -675,19 +590,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &913091981032955748
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363881388397544770}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5734339341105967752
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +661,6 @@ GameObject:
   - component: {fileID: 8089640335110519122}
   - component: {fileID: 4833249900884800904}
   - component: {fileID: 978142098264523335}
-  - component: {fileID: 583758729149074310}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -829,19 +730,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &583758729149074310
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7043782791189954623}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7341654198440595610
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7341654198440595612}
   - component: {fileID: 7341654198440595613}
-  - component: {fileID: 7341654198440595615}
+  - component: {fileID: 4934709523565257083}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -908,8 +796,8 @@ MonoBehaviour:
     type: 3}
   ExplosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
---- !u!135 &7341654198440595615
-SphereCollider:
+--- !u!65 &4934709523565257083
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -919,8 +807,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.63
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.41687, y: 1.1561012, z: 1.0719604}
+  m_Center: {x: -0.02279663, y: 0.0250206, z: -0.0056762695}
 --- !u!1 &7341654200361790447
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,16 +14,10 @@ Contrôles
 ================== A faire 
 
 
-plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
-- attackdirection pas exacte (sur turret aussi)
-
-
-ennemis détruits et physics
-
-mourir quand on chute
-respawn quand on meurt
 conditions de victoire, vaisseau qui vient chercher pour extraction
 rendre la map tuto jouable entièrement
+
+
 
 Draft du level-1
 
@@ -42,12 +36,25 @@ Draft du level-1
 	- impacts et explosions
 	- arme et grappin avec spring
 	- surfaces qui refusent le grappin: faire du feedback visuel - grappin qui échoue à connecter par exemple)
-	etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
+	- etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
 
+petits freeze quand ça grapple pas; Optim les raycasts
+effect visuel quand on se fait tirer dessus hors écran
+modeles ennemis
+	plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
+	ennemis détruits et physics
+modele arme et grapin
 shader pour faire bouger l'herbe
 effet de vitesse quand on grapine vite (particules, accélération etc)
-- ennemis drop de la vie
+crosshair
+UI
+
+Ennemis
+- Drop de la vie
+- regarder la destination de déplacement + lerp la rotation
+- Ajouter de l'imprécision dans les tirs
 - précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
+
 crosshair contextuel (vert si on peut grappin, rouge sinon)
 respawn d'ennemi ?
 
