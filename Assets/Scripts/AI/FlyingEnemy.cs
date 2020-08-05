@@ -13,7 +13,8 @@ public class FlyingEnemy : EnemyAI
     public float DetectionRange;
 
     public Constants.PoolTag ProjectileType;
-    public Transform BarrelTip;
+    public Transform[] BarrelTips;
+    private int _currentBarrelTip = 0;
     public LayerMask LasersHitLayers;
     public float AttackSpeed;
     public float MaxShootDistance;
@@ -71,24 +72,31 @@ public class FlyingEnemy : EnemyAI
         throw new System.Exception("Couldn't find a random point.");
     }
 
+    Transform GetNextBarrelTip()
+    {
+        _currentBarrelTip = (_currentBarrelTip + 1) % BarrelTips.Length;
+        return BarrelTips[_currentBarrelTip];
+    }
+
     IEnumerator Attack()
     {
         yield return new WaitForSeconds(1f);
 
         while (this.enabled)
         {
-            var attackDirection = (_playerAimPoint.position - BarrelTip.position) * 100;
-            Physics.Raycast(BarrelTip.position, attackDirection, out var hitInfo, 100, LasersHitLayers);
-            bool canSeePlayer = hitInfo.collider != null && hitInfo.collider.gameObject.tag == Constants.PlayerTag;
+            var barrelTip = GetNextBarrelTip();
+            var attackDirection = (_playerAimPoint.position - barrelTip.position) * 100;
+            var canCast = Physics.Raycast(barrelTip.position, /*0.3f,*/ attackDirection, out var hitInfo, 100, LasersHitLayers);
+            bool canSeePlayer = canCast && hitInfo.collider != null && hitInfo.collider.gameObject.tag == Constants.PlayerTag;
 
             if (canSeePlayer && Vector3.Distance(transform.position, _playerAimPoint.position) < MaxShootDistance)
             {
                 // if in range and player is visible, shoot player
-                Debug.DrawRay(BarrelTip.position, attackDirection, Color.red);
+                Debug.DrawRay(barrelTip.position, attackDirection, Color.red);
                 if (hitInfo.collider.gameObject.tag == Constants.PlayerTag)
                 {
                     // Fire
-                    ObjectPool.Instance.SpawnFromPool(ProjectileType, BarrelTip.position, BarrelTip.rotation);
+                    ObjectPool.Instance.SpawnFromPool(ProjectileType, barrelTip.position, barrelTip.rotation);
                     yield return new WaitForSeconds(1f / RateOfFire);
                 }
             }
@@ -103,7 +111,7 @@ public class FlyingEnemy : EnemyAI
                 if (Vector3.Distance(_currentPatrollingDestination, transform.position) < 1)
                 {
                     // Get a new destination around the starting point
-                    _currentPatrollingDestination = GetRandomPointAround(transform.position, 5f);
+                    _currentPatrollingDestination = GetRandomPointAround(transform.position, 8f);
                 }
 
                 // move to _currentPatrollingDestination

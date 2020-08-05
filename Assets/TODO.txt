@@ -14,14 +14,9 @@ Contrôles
 ================== A faire 
 
 
-Améliorer l'eau
-	Mousse sur les bords via particles (texture blanc transparent)
-	=> Appliquer sur les prefabs quand j'aurai push
-nuages
-	sprites
-	=> Ajouter les nuages dans la scene quand j'aurai push
-
 plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
+- attackdirection pas exacte (sur turret aussi)
+
 
 ennemis détruits et physics
 
