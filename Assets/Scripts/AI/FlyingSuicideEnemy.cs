@@ -107,10 +107,10 @@ public class FlyingSuicideEnemy : EnemyAI
         }
     }
 
-    public override void TakeDamage(float Damage, Vector3 position)
+    public override void TakeDamage(float Damage, Vector3 position, Vector3? projectileDirection)
     {
         Instantiate(ImpactPrefab, position, Quaternion.identity);
-        base.TakeDamage(Damage, position);
+        base.TakeDamage(Damage, position, projectileDirection);
     }
 
     public override void Die()

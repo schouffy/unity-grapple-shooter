@@ -6,7 +6,7 @@ public class Damageable : MonoBehaviour
 {
     public float Health;
 
-    public virtual void TakeDamage(float Damage, Vector3 impactPoint)
+    public virtual void TakeDamage(float Damage, Vector3 impactPoint, Vector3? projectileDirection)
     {
         if (Health <= 0)
             return;

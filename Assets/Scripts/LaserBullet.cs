@@ -46,7 +46,7 @@ public class LaserBullet : MonoBehaviour, IPoolable
         var damageable = objectToDamage.GetComponent<Damageable>();
         if (damageable != null)
         {
-            damageable.TakeDamage(Damage, hitInfo.point);
+            damageable.TakeDamage(Damage, hitInfo.point, transform.forward);
         }
         else
         {

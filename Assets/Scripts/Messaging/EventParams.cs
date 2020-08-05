@@ -25,6 +25,12 @@ public class IntegerEventParam : EventParam
     public int Value { get; set; }
 }
 
+public class HealthEventParam : EventParam
+{
+    public int Health { get; set; }
+    public Vector3? ProjectileDirection { get; set; }
+}
+
 public class CheckpointReachedEventParam : EventParam
 {
     public Vector3 RespawnPosition { get; set; }

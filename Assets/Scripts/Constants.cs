@@ -26,6 +26,18 @@ public class Constants
             return _playerObject;
         }
     }
+
+    public static String ShipTag => "ExtractionShip";
+    private static GameObject _shipObject = null;
+    public static GameObject Ship
+    {
+        get
+        {
+            if (_shipObject == null)
+                _shipObject = GameObject.FindWithTag(ShipTag);
+            return _shipObject;
+        }
+    }
 }
 
 public enum EnemyStatus

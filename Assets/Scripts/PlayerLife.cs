@@ -8,15 +8,15 @@ public class PlayerLife : Damageable
 
     void Start()
     {
-        EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new IntegerEventParam() { Value = (int)Health });
+        EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new HealthEventParam() { Health = (int)Health });
     }
 
-    public override void TakeDamage(float Damage, Vector3 position)
+    public override void TakeDamage(float Damage, Vector3 position, Vector3? projectileDirection)
     {
-        base.TakeDamage(Damage, position);
+        base.TakeDamage(Damage, position, projectileDirection);
         //Debug.Log("Taken " + Damage + " damage");
 
-        EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new IntegerEventParam() { Value = (int)Health });
+        EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new HealthEventParam() { Health = (int)Health, ProjectileDirection = projectileDirection });
     }
 
     public override void Die()

@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class ExtractionShip : MonoBehaviour
 {
+    public Animator ShipAnimator;
+    public Transform PlayerExtractPosition;
+
+    private void Awake()
+    {
+        ShowMesh(false);
+    }
+
+    private void ShowMesh(bool visible)
+    {
+        var renderers = GetComponentsInChildren<Renderer>();
+        foreach (var renderer in renderers)
+        {
+            renderer.enabled = visible;
+        }
+    }
+
     void OnEnable()
     {
         EventManager.StartListening(EventType.SummonExtractionShip, (p) => this.Summon());
@@ -16,21 +33,48 @@ public class ExtractionShip : MonoBehaviour
 
     void Summon()
     {
-        Debug.Log("Extraction ship is on the way");
+        ShowMesh(true);
 
         // animate arrival
-
+        ShipAnimator.SetTrigger("Arrival");
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == Constants.PlayerTag)
         {
-            EventManager.TriggerEvent(EventType.LevelEnd, null);
-            // player is on ship, can't move anymore
-            // ship moves away
-            // fade to black
-            // load next level
+            StartCoroutine(LeaveWithShip());
+        }
+    }
+    IEnumerator LeaveWithShip()
+    {
+        // prevent player from moving and place it on ship
+        yield return MovePlayerInShip();
+
+        // ship moves away
+        ShipAnimator.SetTrigger("Departure");
+        yield return new WaitForSeconds(7f);
+
+        // fade to black
+        // load next level
+        EventManager.TriggerEvent(EventType.LevelEnd, null);
+    }
+
+    IEnumerator MovePlayerInShip()
+    {
+        Constants.Player.GetComponent<Rigidbody>().isKinematic = true;
+        var playerTransform = Constants.Player.transform;
+        while (true)
+        {
+            playerTransform.position = Vector3.MoveTowards(playerTransform.position, PlayerExtractPosition.position, 2f * Time.deltaTime);
+            playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, PlayerExtractPosition.rotation, Time.deltaTime);
+
+            if (Vector3.Distance(playerTransform.position, PlayerExtractPosition.position) < 1)
+            {
+                playerTransform.parent = PlayerExtractPosition;
+                break;
+            }
+            yield return null;
         }
     }
 }

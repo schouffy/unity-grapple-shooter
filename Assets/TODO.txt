@@ -13,13 +13,13 @@ Contrôles
 
 ================== A faire 
 
+effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
+indiquer la direction de l'extraction ship
+freeze quand ça grapple pas; Optim les raycasts
+- surfaces qui refusent le grappin: faire du feedback visuel - grappin qui échoue à connecter par exemple)
+- surfaces trop loin : animer le grapin pour que le joueur comprenne
+- etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
 
-conditions de victoire, vaisseau qui vient chercher pour extraction
-rendre la map tuto jouable entièrement
-
-
-
-Draft du level-1
 
 
 - polish les contrôles fps
@@ -31,23 +31,29 @@ Draft du level-1
 		- swing doit être facile à maitriser
 		- viser et tirer doit être précis
 
+rendre la map tuto jouable entièrement
+
 - améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish
 	- projectiles
 	- impacts et explosions
 	- arme et grappin avec spring
-	- surfaces qui refusent le grappin: faire du feedback visuel - grappin qui échoue à connecter par exemple)
-	- etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
 
-petits freeze quand ça grapple pas; Optim les raycasts
-effect visuel quand on se fait tirer dessus hors écran
+
+
+
+
 modeles ennemis
 	plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
 	ennemis détruits et physics
 modele arme et grapin
+modele extraction ship
+
 shader pour faire bouger l'herbe
 effet de vitesse quand on grapine vite (particules, accélération etc)
 crosshair
-UI
+Améliorer UI
+
+Draft du level-1
 
 Ennemis
 - Drop de la vie
