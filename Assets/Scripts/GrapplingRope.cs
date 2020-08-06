@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Rope
         public float scrollSpeed;
         public float segments;
         public float animSpeed;
+        public float failsToConnectAnimDuration;
 
         [Header("Data")]
         public LineRenderer lineRenderer;
@@ -22,6 +24,7 @@ namespace Rope
         private Vector3 _end;
         private float _time;
         private bool _active;
+        private bool _failsToConnect;
 
         public void UpdateGrapple()
         {
@@ -72,6 +75,7 @@ namespace Rope
 
         public void Grapple(Vector3 start, Vector3 end)
         {
+            _failsToConnect = false;
             _active = true;
             _time = 0f;
 
@@ -79,8 +83,29 @@ namespace Rope
             _end = end;
         }
 
+        public void GrappleAndFail(Vector3 start, Vector3 end)
+        {
+            StartCoroutine(_GrappleAndFail(start, end));
+        }
+        IEnumerator _GrappleAndFail(Vector3 start, Vector3 end)
+        {
+            _failsToConnect = true;
+            _active = true;
+            _time = 0f;
+
+            _start = start;
+            _end = end;
+
+            yield return new WaitForSeconds(failsToConnectAnimDuration);
+
+            _active = false;
+        }
+
         public void UnGrapple()
         {
+            if (_failsToConnect)
+                return; // ungrapple will be handled by coroutine
+
             _active = false;
         }
 
@@ -89,6 +114,6 @@ namespace Rope
             _start = start;
         }
 
-        public bool Grappling => _active;
+        public bool Grappling => _active && !_failsToConnect;
     }
 }

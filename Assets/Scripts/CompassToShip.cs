@@ -6,8 +6,8 @@ public class CompassToShip : MonoBehaviour
 {
     private void Start()
     {
-        gameObject.SetActive(false);
         EventManager.StartListening(EventType.SummonExtractionShip, (p) => { gameObject.SetActive(true); });
+        gameObject.SetActive(false);
     }
 
     void Update()

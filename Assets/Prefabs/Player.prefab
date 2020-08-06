@@ -598,10 +598,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   maxDistance: 20
-  minDistance: 3.5
+  minDistance: 1
   rotationSmooth: 10
-  raycastRadius: 1.5
-  raycastCount: 51
+  GrappleStatus: {fileID: 0}
+  RaycastMaxRadius: 0.8
   pullForce: 12
   pushForce: 6
   yMultiplier: 1.5
@@ -885,6 +885,7 @@ MonoBehaviour:
   scrollSpeed: 5
   segments: 200
   animSpeed: 3
+  failsToConnectAnimDuration: 0.12
   lineRenderer: {fileID: 222473191304867520}
 --- !u!1 &222473191321052172
 GameObject:

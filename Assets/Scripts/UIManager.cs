@@ -89,8 +89,7 @@ public class UIManager : MonoBehaviour
 
     void ExtractionShipOnTheWay()
     {
-        ExtractionShipOnTheWayScreen.SetActive(true);
-        //StartCoroutine(_ExtractionShipOnTheWay());
+        StartCoroutine(_ExtractionShipOnTheWay());
     }
     IEnumerator _ExtractionShipOnTheWay()
     {

@@ -13,13 +13,12 @@ Contrôles
 
 ================== A faire 
 
-effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
-indiquer la direction de l'extraction ship
-freeze quand ça grapple pas; Optim les raycasts
-- surfaces qui refusent le grappin: faire du feedback visuel - grappin qui échoue à connecter par exemple)
-- surfaces trop loin : animer le grapin pour que le joueur comprenne
-- etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
 
+
+- etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
+effet de vitesse quand on grapine vite (particules, accélération etc) et augmenter le FOV
+
+effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
 
 
 - polish les contrôles fps
@@ -36,7 +35,7 @@ rendre la map tuto jouable entièrement
 - améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish
 	- projectiles
 	- impacts et explosions
-	- arme et grappin avec spring
+	
 
 
 
@@ -46,10 +45,11 @@ modeles ennemis
 	plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
 	ennemis détruits et physics
 modele arme et grapin
+arme et grappin avec spring
 modele extraction ship
-
+Améliorer flèche vers ship
 shader pour faire bouger l'herbe
-effet de vitesse quand on grapine vite (particules, accélération etc)
+
 crosshair
 Améliorer UI
 
@@ -65,10 +65,6 @@ crosshair contextuel (vert si on peut grappin, rouge sinon)
 respawn d'ennemi ?
 
 vault, climb
-dash
-grappin sur ennemi pour dash dessus et le buter
-grappin sur ennemi pour l'attirer à nous
-environnement (explosifs, physique,..)
 
 
 

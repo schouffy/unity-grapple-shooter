@@ -9,10 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 50703501774691369}
-  - component: {fileID: 7199638020253743794}
-  - component: {fileID: 8439730393105330125}
   - component: {fileID: 18795174770173900}
-  - component: {fileID: 8871784557116978524}
   m_Layer: 9
   m_Name: PlayerLaserBullet
   m_TagString: Untagged
@@ -30,25 +27,78 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
   m_LocalPosition: {x: 0.732335, y: 1.8437, z: -8.614614}
   m_LocalScale: {x: 0.08763404, y: 0.08763404, z: 4.1166263}
-  m_Children: []
+  m_Children:
+  - {fileID: 6969737709499333376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
---- !u!33 &7199638020253743794
+--- !u!114 &18795174770173900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357197775458215176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2d8be8e5bd6254dbb0376e11cca846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 100
+  Damage: 1
+  Thickness: 0.05
+  MaxLifetime: 2
+  WhatToHit:
+    serializedVersion: 2
+    m_Bits: 1025
+--- !u!1 &5927995982391887733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6969737709499333376}
+  - component: {fileID: 8153837509451244476}
+  - component: {fileID: 4059650957351676216}
+  - component: {fileID: 49532933377166452}
+  m_Layer: 9
+  m_Name: PlayerLaserBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6969737709499333376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927995982391887733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 50703501774691369}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8153837509451244476
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3357197775458215176}
+  m_GameObject: {fileID: 5927995982391887733}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8439730393105330125
+--- !u!23 &4059650957351676216
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3357197775458215176}
+  m_GameObject: {fileID: 5927995982391887733}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
@@ -81,32 +131,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &18795174770173900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3357197775458215176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2d8be8e5bd6254dbb0376e11cca846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 100
-  Damage: 1
-  Thickness: 0.05
-  MaxLifetime: 2
-  WhatToHit:
-    serializedVersion: 2
-    m_Bits: 1025
---- !u!108 &8871784557116978524
+--- !u!108 &49532933377166452
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3357197775458215176}
+  m_GameObject: {fileID: 5927995982391887733}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 2

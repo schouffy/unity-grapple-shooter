@@ -17,9 +17,11 @@ public class GrapplingHook : MonoBehaviour
     public float minDistance;
     public float rotationSmooth;
 
+    [Header("Visual")]
+    public TextMesh GrappleStatus;
+
     [Header("Raycasts")]
-    public float raycastRadius;
-    public int raycastCount;
+    public float RaycastMaxRadius;
 
     [Header("Physics")]
     public float pullForce;
@@ -51,10 +53,17 @@ public class GrapplingHook : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetButtonDown("Grapple") && RaycastAll(out var hitInfo))
+        bool canGrapple = RaycastAll(out var hitInfo, out bool surfaceNotGrappable);
+        GrappleStatus.text = canGrapple ? "YES" : "NO";
+
+        if (Input.GetButtonDown("Grapple") && canGrapple)
         {
             grapplingRope.Grapple(grappleTip.position, hitInfo.point);
             _hit = hitInfo.point;
+        }
+        else if (Input.GetButtonDown("Grapple") && surfaceNotGrappable)
+        {
+            grapplingRope.GrappleAndFail(grappleTip.position, hitInfo.point);
         }
 
         if (Input.GetButtonUp("Grapple"))
@@ -70,76 +79,129 @@ public class GrapplingHook : MonoBehaviour
         grapplingRope.UpdateGrapple();
     }
 
-    private bool RaycastAll(out RaycastHit hit)
+    private bool RaycastAll(out RaycastHit hit, out bool surfaceNotGrappable)
     {
-        var divided = raycastRadius / 2f;
-        var possible = new List<RaycastHit>(raycastCount * raycastCount);
-        var cam = player.playerCamera.transform;
         bool hasHitUngrappable = false;
+        var cam = player.playerCamera.transform;
+        surfaceNotGrappable = false;
+        RaycastHit notGrappableHitInfo = new RaycastHit();
 
-        for (var x = 0; x < raycastCount; x++)
+        bool ExamineCast(RaycastHit cast)
         {
-            for (var y = 0; y < raycastCount; y++)
+            var distance = Vector3.Distance(cam.position, cast.point);
+            var isUngrappable = whatToGrapple.value != (whatToGrapple.value | (1 << cast.transform.gameObject.layer));
+
+            if (distance < minDistance || distance > maxDistance)
+                return false;
+            else if (isUngrappable)
             {
-                var pos = new Vector2(
-                    Mathf.Lerp(-divided, divided, x / (float)(raycastCount - 1)),
-                    Mathf.Lerp(-divided, divided, y / (float)(raycastCount - 1))
-                );
+                notGrappableHitInfo = cast;
+                hasHitUngrappable = true;
+                return false;
+            }
+            else
+                return true;
+        }
 
-                if (!Physics.Raycast(cam.position + cam.right * pos.x + cam.up * pos.y, cam.forward, out var hitInfo, maxDistance + 20)) continue;
-
-                var distance = Vector3.Distance(cam.position, hitInfo.point);
-                if (whatToGrapple.value != (whatToGrapple.value | (1 << hitInfo.transform.gameObject.layer)))
-                {
-                    hasHitUngrappable = true;
-                    continue;
-                }
-                if (distance < minDistance) continue;
-                if (distance > maxDistance)
-                {
-                    Debug.Log($"Too far. ({distance} m)");
-                    continue;
-                }
-
-                possible.Add(hitInfo);
+        if (Physics.Raycast(cam.position, cam.forward * (maxDistance + 100), out var hitInfo))
+        {
+            if (ExamineCast(hitInfo))
+            {
+                hit = hitInfo;
+                return true;
             }
         }
 
-        var arr = possible.ToArray();
-
-        if (arr.Length > 0)
+        for (float radius = 0.1f; radius < RaycastMaxRadius; radius += 0.1f)
         {
-            var closest = new RaycastHit();
-            var distance = 0f;
-            var set = false;
-
-            foreach (var hitInfo in arr)
+            if (Physics.SphereCast(cam.position, radius, cam.forward * (maxDistance + 100), out hitInfo))
             {
-                var hitDistance = DistanceFromCenter(hitInfo.point);
-
-                if (!set)
+                if (ExamineCast(hitInfo))
                 {
-                    set = true;
-                    distance = hitDistance;
-                    closest = hitInfo;
-                }
-                else if (hitDistance < distance)
-                {
-                    distance = hitDistance;
-                    closest = hitInfo;
+                    hit = hitInfo;
+                    return true;
                 }
             }
-
-            hit = closest;
-            return true;
-        }
-        else if (hasHitUngrappable)
-        {
-            Debug.Log("TODO Can't grapple to this. Do some visual FX.");
         }
 
         hit = new RaycastHit();
+        if (hasHitUngrappable)
+        {
+            hit = notGrappableHitInfo;
+            surfaceNotGrappable = true;
+        }
+
         return false;
+
+
+        //var divided = raycastRadius / 2f;
+        //var possible = new List<RaycastHit>(raycastCount * raycastCount);
+        
+        //bool hasHitUngrappable = false;
+
+        //for (var x = 0; x < raycastCount; x++)
+        //{
+        //    for (var y = 0; y < raycastCount; y++)
+        //    {
+        //        var pos = new Vector2(
+        //            Mathf.Lerp(-divided, divided, x / (float)(raycastCount - 1)),
+        //            Mathf.Lerp(-divided, divided, y / (float)(raycastCount - 1))
+        //        );
+
+        //        if (!Physics.Raycast(cam.position + cam.right * pos.x + cam.up * pos.y, cam.forward, out var hitInfo, maxDistance + 20)) continue;
+
+        //        var distance = Vector3.Distance(cam.position, hitInfo.point);
+        //        if (whatToGrapple.value != (whatToGrapple.value | (1 << hitInfo.transform.gameObject.layer)))
+        //        {
+        //            hasHitUngrappable = true;
+        //            continue;
+        //        }
+        //        if (distance < minDistance) continue;
+        //        if (distance > maxDistance)
+        //        {
+        //            Debug.Log($"Too far. ({distance} m)");
+        //            continue;
+        //        }
+
+        //        possible.Add(hitInfo);
+        //    }
+        //}
+
+        //var arr = possible.ToArray();
+
+        //if (arr.Length > 0)
+        //{
+        //    var closest = new RaycastHit();
+        //    var distance = 0f;
+        //    var set = false;
+
+        //    foreach (var hitInfo in arr)
+        //    {
+        //        var hitDistance = DistanceFromCenter(hitInfo.point);
+
+        //        if (!set)
+        //        {
+        //            set = true;
+        //            distance = hitDistance;
+        //            closest = hitInfo;
+        //        }
+        //        else if (hitDistance < distance)
+        //        {
+        //            distance = hitDistance;
+        //            closest = hitInfo;
+        //        }
+        //    }
+
+        //    hit = closest;
+        //    return true;
+        //}
+        //else if (hasHitUngrappable)
+        //{
+        //    Debug.Log("TODO Can't grapple to this. Do some visual FX.");
+        //}
+
+        //hit = new RaycastHit();
+        //return false;
     }
 
     private float DistanceFromCenter(Vector3 point)
