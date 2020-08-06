@@ -15,9 +15,6 @@ Contrôles
 
 
 
-- etre propulsé avec une force minimale même quand la surface est proche (pour grimper)
-effet de vitesse quand on grapine vite (particules, accélération etc) et augmenter le FOV
-
 effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
 
 

@@ -19,6 +19,15 @@ public class GrapplingHook : MonoBehaviour
 
     [Header("Visual")]
     public TextMesh GrappleStatus;
+    private float _initialCameraFov;
+    public float FovTargetWhenGrappling;
+    public float MinSpeedBeforeFovIncrease;
+    public float FovIncreaseSpeed;
+    public float FovDecreaseSpeed;
+    public ParticleSystem SpeedEffect;
+    private Color _fxOpaque;
+    private Color _fxTransparent;
+
 
     [Header("Raycasts")]
     public float RaycastMaxRadius;
@@ -33,6 +42,16 @@ public class GrapplingHook : MonoBehaviour
     private Vector3 _hit;
 
     public bool Grappling => grapplingRope.Grappling;
+
+    private void Start()
+    {
+        _initialCameraFov = Camera.main.fieldOfView;
+        var fxMain = SpeedEffect.main.startColor;
+        _fxOpaque = fxMain.color;
+        _fxOpaque.a = 1;
+        _fxTransparent = fxMain.color;
+        _fxTransparent.a = 0;
+    }
 
     private void FixedUpdate()
     {
@@ -77,6 +96,24 @@ public class GrapplingHook : MonoBehaviour
         }
 
         grapplingRope.UpdateGrapple();
+        ShowSpeedFx();
+    }
+
+
+
+    void ShowSpeedFx()
+    {
+        // Check rigidbody velocity on camera forward axis
+        var speed = Camera.main.transform.InverseTransformDirection(player.playerRigidBody.velocity);
+        if (speed.z > MinSpeedBeforeFovIncrease)
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, FovTargetWhenGrappling, FovIncreaseSpeed * speed.z * Time.deltaTime);
+        else
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, _initialCameraFov, FovDecreaseSpeed * Time.deltaTime);
+
+        var fovNormalized = (Camera.main.fieldOfView - _initialCameraFov) / (FovTargetWhenGrappling - _initialCameraFov);
+
+        var main = SpeedEffect.main;
+        main.startColor = new ParticleSystem.MinMaxGradient(Color.Lerp(_fxTransparent, _fxOpaque, fovNormalized));
     }
 
     private bool RaycastAll(out RaycastHit hit, out bool surfaceNotGrappable)
