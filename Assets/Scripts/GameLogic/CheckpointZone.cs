@@ -10,7 +10,7 @@ public class CheckpointZone : PlayerTriggerZone
     {
         base.OnPlayerEnter(player);
 
-        if (GameManager.RespawnPosition.HasValue && RespawnPosition.position == RespawnPosition.position)
+        if (GameManager.RespawnPosition.HasValue && GameManager.RespawnPosition.Value == RespawnPosition.position)
             gameObject.SetActive(false);
         else
         {

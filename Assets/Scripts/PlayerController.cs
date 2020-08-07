@@ -48,6 +48,7 @@ namespace Player
 
         private void Start()
         {
+            _yRotation = transform.rotation.eulerAngles.y;
         }
 
         private void FixedUpdate()
@@ -75,8 +76,8 @@ namespace Player
 
         private void ApplyMovement()
         {
-            var inputX = Input.GetAxis("Horizontal") < 0 ? -1 : (Input.GetAxis("Horizontal") > 0 ? 1 : 0);
-            var inputY = Input.GetAxis("Vertical") < 0 ? -1 : (Input.GetAxis("Vertical") > 0 ? 1 : 0);
+            var inputX = Input.GetAxisRaw("Horizontal") < 0 ? -1 : (Input.GetAxisRaw("Horizontal") > 0 ? 1 : 0);
+            var inputY = Input.GetAxisRaw("Vertical") < 0 ? -1 : (Input.GetAxisRaw("Vertical") > 0 ? 1 : 0);
             var axis = new Vector2(inputX, inputY).normalized;
 
             var speed = _realGrounded ? movementSpeed : airMovementSpeed;

@@ -14,14 +14,19 @@ Contrôles
 ================== A faire 
 
 
+Revoir les bras
+	- Exporter les bras vides depuis blender et les armes séparément, réassembler dans unity
+	- refaire le grapin en conséquence (on peut désormais parenter le hook)
+	- Faire des Layers et AvatarMask pour le bras gauche/droit https://docs.unity3d.com/Manual/class-AvatarMask.html
+
 modeles ennemis
 	reste à faire les textures avec substance painter
-player spawn en regardant dans une direction que je décide pas
-strafer et tourner en même temps c'est tout pété :o
 modele mains et arme et grapin
-arme et grappin avec spring
-Améliorer flèche vers ship
+
+
 effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
+	Faire comme la flèche qui pointe vers le ship ? en unlit, ça passe.
+	Plusieurs affichés en simultané ? avec un pivot décalé pour que ça reste lisible ?
 
 rendre la map tuto jouable entièrement
 
@@ -46,14 +51,15 @@ Ennemis
 - regarder la destination de déplacement + lerp la rotation
 - Ajouter de l'imprécision dans les tirs
 - précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
+- particle genre ellipses anti grav
 
 tourelles missiles guidés qu'on peut détruire..
-crosshair contextuel (vert si on peut grappin, rouge sinon)
 respawn d'ennemi ?
 
 vault, climb
 shader pour faire bouger l'herbe
 
+défendre l'extraction ship ?
 
 
 - level 1
