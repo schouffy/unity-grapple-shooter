@@ -10,11 +10,15 @@ public class PlayerShooter : MonoBehaviour
     public float RateOfFire;
     private float _lastFireTime = 0;
 
-    // Update is called once per frame
+    public Animator Animator;
+
+
     void Update()
     {
         if (Input.GetButton("Fire") && (_lastFireTime + 1f / RateOfFire) <= Time.time)
         {
+            Animator.SetTrigger("Shoot");
+
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hitInfo, 100.0f);
             var target = hitInfo.point;
             if (target == Vector3.zero)

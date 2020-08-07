@@ -15,8 +15,9 @@ Contrôles
 
 
 modeles ennemis
-	reste à faire l'UV unwrap et les textures avec substance painter
+	reste à faire les textures avec substance painter
 player spawn en regardant dans une direction que je décide pas
+strafer et tourner en même temps c'est tout pété :o
 modele mains et arme et grapin
 arme et grappin avec spring
 Améliorer flèche vers ship

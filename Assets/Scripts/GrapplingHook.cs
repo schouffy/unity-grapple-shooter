@@ -16,6 +16,7 @@ public class GrapplingHook : MonoBehaviour
     public float maxDistance;
     public float minDistance;
     public float rotationSmooth;
+    private Quaternion _initialHolderRotation;
 
     [Header("Visual")]
     public TextMesh GrappleStatus;
@@ -45,6 +46,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void Start()
     {
+        _initialHolderRotation = grappleHolder.localRotation;
         _initialCameraFov = Camera.main.fieldOfView;
         var fxMain = SpeedEffect.main.startColor;
         _fxOpaque = fxMain.color;
@@ -66,7 +68,7 @@ public class GrapplingHook : MonoBehaviour
         }
         else
         {
-            grappleHolder.localRotation = Quaternion.Lerp(grappleHolder.localRotation, Quaternion.Euler(0, 0, 0), rotationSmooth * Time.fixedDeltaTime);
+            grappleHolder.localRotation = Quaternion.Lerp(grappleHolder.localRotation, _initialHolderRotation, rotationSmooth * Time.fixedDeltaTime);
         }
     }
 
@@ -169,76 +171,6 @@ public class GrapplingHook : MonoBehaviour
         }
 
         return false;
-
-
-        //var divided = raycastRadius / 2f;
-        //var possible = new List<RaycastHit>(raycastCount * raycastCount);
-        
-        //bool hasHitUngrappable = false;
-
-        //for (var x = 0; x < raycastCount; x++)
-        //{
-        //    for (var y = 0; y < raycastCount; y++)
-        //    {
-        //        var pos = new Vector2(
-        //            Mathf.Lerp(-divided, divided, x / (float)(raycastCount - 1)),
-        //            Mathf.Lerp(-divided, divided, y / (float)(raycastCount - 1))
-        //        );
-
-        //        if (!Physics.Raycast(cam.position + cam.right * pos.x + cam.up * pos.y, cam.forward, out var hitInfo, maxDistance + 20)) continue;
-
-        //        var distance = Vector3.Distance(cam.position, hitInfo.point);
-        //        if (whatToGrapple.value != (whatToGrapple.value | (1 << hitInfo.transform.gameObject.layer)))
-        //        {
-        //            hasHitUngrappable = true;
-        //            continue;
-        //        }
-        //        if (distance < minDistance) continue;
-        //        if (distance > maxDistance)
-        //        {
-        //            Debug.Log($"Too far. ({distance} m)");
-        //            continue;
-        //        }
-
-        //        possible.Add(hitInfo);
-        //    }
-        //}
-
-        //var arr = possible.ToArray();
-
-        //if (arr.Length > 0)
-        //{
-        //    var closest = new RaycastHit();
-        //    var distance = 0f;
-        //    var set = false;
-
-        //    foreach (var hitInfo in arr)
-        //    {
-        //        var hitDistance = DistanceFromCenter(hitInfo.point);
-
-        //        if (!set)
-        //        {
-        //            set = true;
-        //            distance = hitDistance;
-        //            closest = hitInfo;
-        //        }
-        //        else if (hitDistance < distance)
-        //        {
-        //            distance = hitDistance;
-        //            closest = hitInfo;
-        //        }
-        //    }
-
-        //    hit = closest;
-        //    return true;
-        //}
-        //else if (hasHitUngrappable)
-        //{
-        //    Debug.Log("TODO Can't grapple to this. Do some visual FX.");
-        //}
-
-        //hit = new RaycastHit();
-        //return false;
     }
 
     private float DistanceFromCenter(Vector3 point)
