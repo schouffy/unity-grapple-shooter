@@ -12,6 +12,9 @@ ModelImporter:
   - first:
       74: 4503685822539048392
     second: HandsArmature|Shoot.001
+  - first:
+      74: 6121895296435977923
+    second: Default
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -52,7 +55,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

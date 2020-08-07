@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Player died. Game over");
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         while (true)
         {
             if (Input.anyKey)
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("end level");
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         while (true)
         {
             if (Input.anyKey)

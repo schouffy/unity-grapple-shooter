@@ -130,7 +130,7 @@ public class GrapplingHook : MonoBehaviour
             var distance = Vector3.Distance(cam.position, cast.point);
             var isUngrappable = whatToGrapple.value != (whatToGrapple.value | (1 << cast.transform.gameObject.layer));
 
-            if (distance < minDistance || distance > maxDistance)
+            if (distance < minDistance || distance > maxDistance || cast.collider.isTrigger)
                 return false;
             else if (isUngrappable)
             {
