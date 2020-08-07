@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject CheckpointReachedScreen;
     public GameObject ExtractionShipOnTheWayScreen;
     public GameObject HurtOverlay;
+    public Image HurtOverlayDamageDirection;
     private int? _currentHealth;
     public UnityEngine.UI.Text Health;
     public UnityEngine.UI.Text Score;
@@ -48,9 +50,19 @@ public class UIManager : MonoBehaviour
     }
     IEnumerator _ShowHurtScreen(HealthEventParam healthEventParam)
     {
-        var direction = Constants.Player.transform.forward.normalized - healthEventParam.ProjectileDirection.Value.normalized;
-        Debug.Log("damage position: " + direction) ;
+        //var direction = Constants.Player.transform.forward.normalized - healthEventParam.ProjectileDirection.Value.normalized;
 
+        //var direction = -healthEventParam.ProjectileDirection.Value;
+        //direction.y = 0;
+
+
+        //var angle = Constants.Player.transform.InverseTransformDirection(direction);
+        //Debug.Log("Angle: " + angle);
+        //Debug.DrawRay(Constants.Player.transform.position, -healthEventParam.ProjectileDirection.Value * 10, Color.cyan, 5f);
+
+        //-healthEventParam.ProjectileDirection.Value;
+        HurtOverlayDamageDirection.rectTransform.rotation = Quaternion.Euler(0, 0, 90); // angle on z 
+        // TODO
 
         HurtOverlay.SetActive(true);
         yield return new WaitForSeconds(0.1f);

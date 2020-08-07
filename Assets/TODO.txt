@@ -14,38 +14,26 @@ Contrôles
 ================== A faire 
 
 
-
+modeles ennemis
+	reste à faire l'UV unwrap et les textures avec substance painter
+player spawn en regardant dans une direction que je décide pas
+modele mains et arme et grapin
+arme et grappin avec spring
+Améliorer flèche vers ship
 effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
-
-
-- polish les contrôles fps
-	- glisse trop au sol
-	- ne glisse pas contre les murs en l'air
-	- air control
-	- saut trop long et ample
-	- sensibilité souris, visée ok
-		- swing doit être facile à maitriser
-		- viser et tirer doit être précis
 
 rendre la map tuto jouable entièrement
 
-- améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish
-	- projectiles
-	- impacts et explosions
-	
+- améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish, screenshake
 
 
 
 
 
-modeles ennemis
-	plusieurs types d'ennemis (volants qui tirent, volants qui se suicident, tourelles missiles guidés qu'on peut détruire..)
-	ennemis détruits et physics
-modele arme et grapin
-arme et grappin avec spring
-modele extraction ship
-Améliorer flèche vers ship
-shader pour faire bouger l'herbe
+
+modele collectible (ressource rare)
+modele extraction ship + polish l'anim d'extraction
+ennemis détruits et physics
 
 crosshair
 Améliorer UI
@@ -58,11 +46,12 @@ Ennemis
 - Ajouter de l'imprécision dans les tirs
 - précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
 
+tourelles missiles guidés qu'on peut détruire..
 crosshair contextuel (vert si on peut grappin, rouge sinon)
 respawn d'ennemi ?
 
 vault, climb
-
+shader pour faire bouger l'herbe
 
 
 

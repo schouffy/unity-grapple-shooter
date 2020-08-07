@@ -12,6 +12,8 @@ public class FlyingSuicideEnemy : EnemyAI
     public float PatrolSpeed;
     public float DetectionRange;
 
+    public float ExplosionDamage;
+    public float ExplosionRadius;
     public float AttackSpeed;
     public LayerMask VisionLayers;
 
@@ -80,7 +82,6 @@ public class FlyingSuicideEnemy : EnemyAI
             if (canSeePlayer && Vector3.Distance(transform.position, _playerAimPoint.position) < 2f)
             {
                 // if in range and player is visible, shoot player
-                Debug.Log("Explode and damage player");
                 Die();
                 break;
             }
@@ -116,6 +117,16 @@ public class FlyingSuicideEnemy : EnemyAI
     public override void Die()
     {
         Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+        var surroundingEntities = Physics.OverlapSphere(transform.position, ExplosionRadius);
+        foreach (var entity in surroundingEntities)
+        {
+            var damageable = entity.GetComponent<Damageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(ExplosionDamage, transform.position, null);
+            }
+        }
+
         base.Die();
     }
 }
