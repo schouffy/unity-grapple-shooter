@@ -13,8 +13,6 @@ Contrôles
 
 ================== A faire 
 
-modeles ennemis
-	reste à faire les textures avec substance painter
 
 - Trouver un meilleur workflow (pouvoir modéliser les armes sur des axes propres dans blender, les ajouter aux bras via des liens dynamiques)
 - Créer les animations (idle, tir, grapin, grapin impossible)
@@ -28,8 +26,6 @@ modele mains et arme et grapin
 effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
 	Faire comme la flèche qui pointe vers le ship ? en unlit, ça passe.
 	Plusieurs affichés en simultané ? avec un pivot décalé pour que ça reste lisible ?
-
-lasers avec emissive plutôt que lumières ?
 
 rendre la map tuto jouable entièrement
 
