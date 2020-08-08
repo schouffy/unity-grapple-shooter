@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be459208a39ef05428d5635d6c57c6fa, type: 2}
+  - {fileID: 2100000, guid: c0e4cdbae33d09246a8c16ef7a114a0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,7 +138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be459208a39ef05428d5635d6c57c6fa, type: 2}
+  - {fileID: 2100000, guid: c0e4cdbae33d09246a8c16ef7a114a0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   IdleHalo: {fileID: 2100000, guid: 1e267a24080f34947ad868a2150a6c49, type: 2}
   AttackHalo: {fileID: 2100000, guid: 8f266107e414fcc4c8e3557a060a3a8b, type: 2}
   Mesh: {fileID: 7580246774649896370}
+  Status: 0
   CanonTip: {fileID: 7580246775644405554}
   Turret: {fileID: 7580246774649896364}
   Barrel: {fileID: 8265382662520003733}
@@ -308,7 +309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be459208a39ef05428d5635d6c57c6fa, type: 2}
+  - {fileID: 2100000, guid: c0e4cdbae33d09246a8c16ef7a114a0f, type: 2}
   - {fileID: 2100000, guid: 1e267a24080f34947ad868a2150a6c49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

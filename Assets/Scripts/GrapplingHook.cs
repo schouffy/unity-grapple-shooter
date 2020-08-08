@@ -128,8 +128,6 @@ public class GrapplingHook : MonoBehaviour
 
         bool ExamineCast(RaycastHit cast)
         {
-            Debug.Log("raycast on " + cast.collider.gameObject.name);
-
             var distance = Vector3.Distance(cam.position, cast.point);
             var isUngrappable = whatToGrapple.value != (whatToGrapple.value | (1 << cast.transform.gameObject.layer));
 
