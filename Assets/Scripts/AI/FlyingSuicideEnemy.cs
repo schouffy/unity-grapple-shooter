@@ -71,7 +71,7 @@ public class FlyingSuicideEnemy : EnemyAI
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(1f);
+        Mesh.materials = _attackMaterials;
 
         while (this.enabled)
         {
@@ -112,6 +112,12 @@ public class FlyingSuicideEnemy : EnemyAI
     {
         Instantiate(ImpactPrefab, position, Quaternion.identity);
         base.TakeDamage(Damage, position, projectileDirection);
+
+        if (Status == EnemyStatus.Idle)
+        {
+            Status = EnemyStatus.Attacking;
+            StartCoroutine(Attack());
+        }
     }
 
     public override void Die()

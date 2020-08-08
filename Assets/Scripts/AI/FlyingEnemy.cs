@@ -23,11 +23,11 @@ public class FlyingEnemy : EnemyAI
     public GameObject ImpactPrefab;
     public GameObject ExplosionPrefab;
 
-
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+
         _startingPoint = transform.position;
         _currentPatrollingDestination = transform.position;
     }
@@ -80,7 +80,7 @@ public class FlyingEnemy : EnemyAI
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(1f);
+        Mesh.materials = _attackMaterials;
 
         while (this.enabled)
         {
@@ -127,6 +127,12 @@ public class FlyingEnemy : EnemyAI
     {
         Instantiate(ImpactPrefab, position, Quaternion.identity);
         base.TakeDamage(Damage, position, projectileDirection);
+
+        if (Status == EnemyStatus.Idle)
+        {
+            Status = EnemyStatus.Attacking;
+            StartCoroutine(Attack());
+        }
     }
 
     public override void Die()

@@ -13,14 +13,13 @@ Contrôles
 
 ================== A faire 
 
+modeles ennemis
+	reste à faire les textures avec substance painter
 
 - Trouver un meilleur workflow (pouvoir modéliser les armes sur des axes propres dans blender, les ajouter aux bras via des liens dynamiques)
 - Créer les animations (idle, tir, grapin, grapin impossible)
 - Faire des Layers et AvatarMask pour le bras gauche/droit https://docs.unity3d.com/Manual/class-AvatarMask.html
 
-
-modeles ennemis
-	reste à faire les textures avec substance painter (ne pas oublier les yeux jaunes/rouges)
 modele mains et arme et grapin
  arme: blaster de star wars, ne pas oublier la jauge de chauffe
  grapin: affichage rouge/vert, dérouleur sur rotule, 
@@ -30,12 +29,13 @@ effet visuel quand on se fait toucher (et qui indique la direction d'où on se f
 	Faire comme la flèche qui pointe vers le ship ? en unlit, ça passe.
 	Plusieurs affichés en simultané ? avec un pivot décalé pour que ça reste lisible ?
 
-rendre la map tuto jouable entièrement
+lasers avec emissive plutôt que lumières ?
 
-- améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish, screenshake
+rendre la map tuto jouable entièrement
 
 faire tester sur CPC
 
+- améliorer contrôles, projectiles, feeling, ajouter FX graphiques, juice, polish, screenshake
 
 
 

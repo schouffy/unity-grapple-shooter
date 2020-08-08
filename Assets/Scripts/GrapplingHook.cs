@@ -13,6 +13,7 @@ public class GrapplingHook : MonoBehaviour
     public Transform grappleTip;
     public Transform grappleHolder;
     public LayerMask whatToGrapple;
+    public LayerMask whatToRaycast;
     public float maxDistance;
     public float minDistance;
     public float rotationSmooth;
@@ -127,10 +128,12 @@ public class GrapplingHook : MonoBehaviour
 
         bool ExamineCast(RaycastHit cast)
         {
+            Debug.Log("raycast on " + cast.collider.gameObject.name);
+
             var distance = Vector3.Distance(cam.position, cast.point);
             var isUngrappable = whatToGrapple.value != (whatToGrapple.value | (1 << cast.transform.gameObject.layer));
 
-            if (distance < minDistance || distance > maxDistance || cast.collider.isTrigger)
+            if (distance < minDistance || distance > maxDistance)
                 return false;
             else if (isUngrappable)
             {
@@ -142,7 +145,7 @@ public class GrapplingHook : MonoBehaviour
                 return true;
         }
 
-        if (Physics.Raycast(cam.position, cam.forward * (maxDistance + 100), out var hitInfo))
+        if (Physics.Raycast(cam.position, cam.forward, out var hitInfo, maxDistance + 100, whatToRaycast))
         {
             if (ExamineCast(hitInfo))
             {
@@ -153,7 +156,7 @@ public class GrapplingHook : MonoBehaviour
 
         for (float radius = 0.1f; radius < RaycastMaxRadius; radius += 0.1f)
         {
-            if (Physics.SphereCast(cam.position, radius, cam.forward * (maxDistance + 100), out hitInfo))
+            if (Physics.SphereCast(cam.position, radius, cam.forward, out hitInfo, maxDistance + 100, whatToRaycast))
             {
                 if (ExamineCast(hitInfo))
                 {

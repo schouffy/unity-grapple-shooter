@@ -6,6 +6,12 @@ public abstract class EnemyAI : Damageable
 {
     protected Transform _playerAimPoint;
 
+    public Material IdleHalo;
+    public Material AttackHalo;
+    public Renderer Mesh;
+    protected Material[] _idleMaterials;
+    protected Material[] _attackMaterials;
+
     void OnEnable()
     {
         EventManager.StartListening(EventType.GameOver, this.DisableAI);
@@ -23,6 +29,10 @@ public abstract class EnemyAI : Damageable
 
     protected virtual void Start()
     {
+        _idleMaterials = new Material[] { Mesh.materials[0], IdleHalo };
+        _attackMaterials = new Material[] { Mesh.materials[0], AttackHalo };
+        Mesh.materials = _idleMaterials;
+
         _playerAimPoint = Constants.Player.GetComponent<PlayerLife>().AimPoint;
     }
 

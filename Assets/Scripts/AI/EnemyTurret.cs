@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyTurret : EnemyAI 
 {
+    public EnemyStatus Status;
+
     public Transform CanonTip;
     public Transform Turret;
     public Transform Barrel;
@@ -16,24 +18,41 @@ public class EnemyTurret : EnemyAI
 
     protected override void Start()
     {
+        Status = EnemyStatus.Idle;
         base.Start();
-        StartCoroutine(Attack());
     }
 
     // Update is called once per frame
     void Update()
     {
-        // rotate Turret on Y axis
-        var pointToRotateXZTo = new Vector3(_playerAimPoint.position.x, Turret.position.y, _playerAimPoint.position.z);
-        Turret.LookAt(pointToRotateXZTo, Vector3.up);
-        // Rotate barrel on X axis
-        Barrel.LookAt(_playerAimPoint, Vector3.up);
+        if (Status == EnemyStatus.Idle)
+        {
+            if (Vector3.Distance(_playerAimPoint.position, transform.position) < MaxShootDistance)
+            {
+                Status = EnemyStatus.Attacking;
+                StartCoroutine(Attack());
+            }
+        }
+        else
+        {
+            // rotate Turret on Y axis
+            var pointToRotateXZTo = new Vector3(_playerAimPoint.position.x, Turret.position.y, _playerAimPoint.position.z);
+            Turret.LookAt(pointToRotateXZTo, Vector3.up);
+            // Rotate barrel on X axis
+            Barrel.LookAt(_playerAimPoint, Vector3.up);
+        }
     }
 
     public override void TakeDamage(float Damage, Vector3 position, Vector3? projectileDirection)
     {
         Instantiate(ImpactPrefab, position, Quaternion.identity);
         base.TakeDamage(Damage, position, projectileDirection);
+
+        if (Status == EnemyStatus.Idle)
+        {
+            Status = EnemyStatus.Attacking;
+            StartCoroutine(Attack());
+        }
     }
 
     public override void Die()
@@ -44,13 +63,10 @@ public class EnemyTurret : EnemyAI
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(1f);
+        Mesh.materials = _attackMaterials;
 
         while (this.enabled)
         {
-            // TODO only do it if distance with player is short enough
-
-
 
             // if it can see player, shoot at it
             var attackDirection = (_playerAimPoint.position - CanonTip.position);// * 100;

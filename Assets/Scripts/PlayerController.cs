@@ -36,7 +36,6 @@ namespace Player
         public Camera playerCamera;
         public Transform playerCameraHolder;
         public Rigidbody playerRigidBody;
-        public GrapplingHook GrapplingHook;
 
         private float _xRotation;
         private float _yRotation;

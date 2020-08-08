@@ -186,6 +186,9 @@ MonoBehaviour:
     type: 3}
   ExplosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
+  IdleHalo: {fileID: 2100000, guid: 1e267a24080f34947ad868a2150a6c49, type: 2}
+  AttackHalo: {fileID: 2100000, guid: 8f266107e414fcc4c8e3557a060a3a8b, type: 2}
+  Mesh: {fileID: 6162802019899707305}
 --- !u!64 &5681933542525670668
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -266,7 +269,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: be459208a39ef05428d5635d6c57c6fa, type: 2}
+      objectReference: {fileID: 2100000, guid: 7d7289994db704f4881440058ac7b89f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e22d9c99ddd993f47abbc8bcdddb3a0b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1e267a24080f34947ad868a2150a6c49, type: 2}
     - target: {fileID: 919132149155446097, guid: e22d9c99ddd993f47abbc8bcdddb3a0b,
         type: 3}
       propertyPath: m_Name
@@ -283,6 +291,12 @@ PrefabInstance:
 --- !u!4 &5029824886012474566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e22d9c99ddd993f47abbc8bcdddb3a0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4775854549796393773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6162802019899707305 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e22d9c99ddd993f47abbc8bcdddb3a0b,
     type: 3}
   m_PrefabInstance: {fileID: 4775854549796393773}
   m_PrefabAsset: {fileID: 0}
