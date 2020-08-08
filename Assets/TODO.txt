@@ -13,21 +13,25 @@ Contrôles
 
 ================== A faire 
 
+supprimer l'IK sur les doigts ? Ou supprimer au moins le verrouillage sur trop d'axes. Je peux rien gérer là
+- croquis et modele arme et grappin
+ arme: blaster de star wars, ne pas oublier la jauge de chauffe
+ grapin: affichage rouge/vert, dérouleur sur rotule, 
 
 - Trouver un meilleur workflow (pouvoir modéliser les armes sur des axes propres dans blender, les ajouter aux bras via des liens dynamiques)
 - Créer les animations (idle, tir, grapin, grapin impossible)
 - Faire des Layers et AvatarMask pour le bras gauche/droit https://docs.unity3d.com/Manual/class-AvatarMask.html
 
-modele mains et arme et grapin
- arme: blaster de star wars, ne pas oublier la jauge de chauffe
- grapin: affichage rouge/vert, dérouleur sur rotule, 
 
 
 effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
 	Faire comme la flèche qui pointe vers le ship ? en unlit, ça passe.
 	Plusieurs affichés en simultané ? avec un pivot décalé pour que ça reste lisible ?
 
-rendre la map tuto jouable entièrement
+
+La porte du flingue est abusée, j'ai buté tout les bots en les voyants à peine
+Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
+qjuand on tire sur un mur tout près le laser par on ne sait où
 
 faire tester sur CPC
 
