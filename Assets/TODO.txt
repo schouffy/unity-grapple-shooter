@@ -13,10 +13,15 @@ Contrôles
 
 ================== A faire 
 
-supprimer l'IK sur les doigts ? Ou supprimer au moins le verrouillage sur trop d'axes. Je peux rien gérer là
+- supprimer l'IK sur les doigts ? Ou supprimer au moins le verrouillage sur trop d'axes. Je peux rien gérer là
 - croquis et modele arme et grappin
  arme: blaster de star wars, ne pas oublier la jauge de chauffe
  grapin: affichage rouge/vert, dérouleur sur rotule, 
+
+ utiliser des contraintes "child of" ?
+ - arme a sa propre armature
+ - armature de l'arme a une contrainte child of sur l'armatuer des bras
+ https://www.youtube.com/watch?v=WjAJHrLGvBE
 
 - Trouver un meilleur workflow (pouvoir modéliser les armes sur des axes propres dans blender, les ajouter aux bras via des liens dynamiques)
 - Créer les animations (idle, tir, grapin, grapin impossible)
