@@ -11,6 +11,7 @@ public class PlayerShooter : MonoBehaviour
     private float _lastFireTime = 0;
 
     public Animator Animator;
+    public AudioClip BlasterSound;
 
 
     void Update()
@@ -20,6 +21,7 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetButton("Fire") && (_lastFireTime + 1f / RateOfFire) <= Time.time)
         {
             Animator.SetTrigger("AutoShoot");
+            GetComponent<AudioSource>().PlayOneShot(BlasterSound);
 
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hitInfo, 100.0f);
             var target = hitInfo.point;

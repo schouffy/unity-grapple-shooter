@@ -22,6 +22,7 @@ public class FlyingEnemy : EnemyAI
 
     public GameObject ImpactPrefab;
     public GameObject ExplosionPrefab;
+    public AudioClip LaserSound;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -97,6 +98,7 @@ public class FlyingEnemy : EnemyAI
                 {
                     // Fire
                     ObjectPool.Instance.SpawnFromPool(ProjectileType, barrelTip.position, Quaternion.LookRotation(attackDirection, Vector3.up));
+                    GetComponent<AudioSource>().PlayOneShot(LaserSound);
                     yield return new WaitForSeconds(1f / RateOfFire);
                 }
             }

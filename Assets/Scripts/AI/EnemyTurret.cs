@@ -15,6 +15,7 @@ public class EnemyTurret : EnemyAI
     public float RateOfFire;
     public GameObject ImpactPrefab;
     public GameObject ExplosionPrefab;
+    public AudioClip LaserSound;
 
     protected override void Start()
     {
@@ -77,6 +78,7 @@ public class EnemyTurret : EnemyAI
                 {
                     // Fire
                     ObjectPool.Instance.SpawnFromPool(ProjectileType, CanonTip.position, Quaternion.LookRotation(attackDirection, Vector3.up));
+                    GetComponent<AudioSource>().PlayOneShot(LaserSound);
                     yield return new WaitForSeconds(1f / RateOfFire);
                 }
             }
