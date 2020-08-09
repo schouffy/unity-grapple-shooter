@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 16adf2a48052d04448c11468b86422ba
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -419533343563120541
+    second: GunArmature|Shoot
   externalObjects: {}
   materials:
     materialImportMode: 0

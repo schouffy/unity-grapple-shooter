@@ -29,6 +29,7 @@ public class GrapplingHook : MonoBehaviour
     public ParticleSystem SpeedEffect;
     private Color _fxOpaque;
     private Color _fxTransparent;
+    public Animator Animator;
 
 
     [Header("Raycasts")]
@@ -80,11 +81,13 @@ public class GrapplingHook : MonoBehaviour
 
         if (Input.GetButtonDown("Grapple") && canGrapple)
         {
+            Animator.SetTrigger("Grapple");
             grapplingRope.Grapple(grappleTip.position, hitInfo.point);
             _hit = hitInfo.point;
         }
         else if (Input.GetButtonDown("Grapple") && surfaceNotGrappable)
         {
+            Animator.SetTrigger("Grapple");
             grapplingRope.GrappleAndFail(grappleTip.position, hitInfo.point);
         }
 

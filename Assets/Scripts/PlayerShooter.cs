@@ -15,9 +15,11 @@ public class PlayerShooter : MonoBehaviour
 
     void Update()
     {
+        Animator.SetBool("IsShooting", Input.GetButton("Fire"));
+
         if (Input.GetButton("Fire") && (_lastFireTime + 1f / RateOfFire) <= Time.time)
         {
-            Animator.SetTrigger("Shoot");
+            Animator.SetTrigger("AutoShoot");
 
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hitInfo, 100.0f);
             var target = hitInfo.point;
