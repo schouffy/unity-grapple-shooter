@@ -1,19 +1,15 @@
 fileFormatVersion: 2
-guid: 061d97cf49017e149a04d8fed6e60f00
+guid: db9053c61d5ed734d807ee49226e98fd
 labels:
 - usfx
 - imphenzia
-- stereo
 - weapon
 - scifi
-- plasma
-- cannon
+- sci-fi
+- blaster
+- raygun
 - energy
-- fire
-- firing
-- shoot
-- shooting
-- zap
+- stereo
 AudioImporter:
   serializedVersion: 6
   defaultSettings:

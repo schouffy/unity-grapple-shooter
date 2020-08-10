@@ -31,6 +31,15 @@ public class GrapplingHook : MonoBehaviour
     private Color _fxTransparent;
     public Animator Animator;
 
+    [Header("Audio")]
+    public AudioSource AudioSource;
+    public AudioSource PullingAudioSource;
+    public AudioSource WindPassingByAudioSource;
+    public float WindPassingByThreshold;
+    public AnimationCurve WindPassingByVolumeCurve;
+    public AudioClip GrappleThrown;
+    public AudioClip GrappleDenied;
+
 
     [Header("Raycasts")]
     public float RaycastMaxRadius;
@@ -82,18 +91,26 @@ public class GrapplingHook : MonoBehaviour
         if (Input.GetButtonDown("Grapple") && canGrapple)
         {
             Animator.SetTrigger("Grapple");
+            AudioSource.PlayOneShot(GrappleThrown);
+            PullingAudioSource.Play();
             grapplingRope.Grapple(grappleTip.position, hitInfo.point);
             _hit = hitInfo.point;
         }
         else if (Input.GetButtonDown("Grapple") && surfaceNotGrappable)
         {
             Animator.SetTrigger("Grapple");
+            AudioSource.PlayOneShot(GrappleThrown);
             grapplingRope.GrappleAndFail(grappleTip.position, hitInfo.point);
+        }
+        else if (Input.GetButtonDown("Grapple") && !canGrapple)
+        {
+            GetComponent<AudioSource>().PlayOneShot(GrappleDenied);
         }
 
         if (Input.GetButtonUp("Grapple"))
         {
             grapplingRope.UnGrapple();
+            PullingAudioSource.Stop();
         }
 
         if (Input.GetButton("Grapple") && grapplingRope.Grappling)
@@ -102,12 +119,12 @@ public class GrapplingHook : MonoBehaviour
         }
 
         grapplingRope.UpdateGrapple();
-        ShowSpeedFx();
+        PlaySpeedFx();
     }
 
 
 
-    void ShowSpeedFx()
+    void PlaySpeedFx()
     {
         // Check rigidbody velocity on camera forward axis
         var speed = Camera.main.transform.InverseTransformDirection(player.playerRigidBody.velocity);
@@ -120,6 +137,10 @@ public class GrapplingHook : MonoBehaviour
 
         var main = SpeedEffect.main;
         main.startColor = new ParticleSystem.MinMaxGradient(Color.Lerp(_fxTransparent, _fxOpaque, fovNormalized));
+
+        WindPassingByAudioSource.volume =
+            WindPassingByVolumeCurve.Evaluate(
+            Mathf.Clamp(player.playerRigidBody.velocity.magnitude, 0, WindPassingByThreshold) / WindPassingByThreshold);
     }
 
     private bool RaycastAll(out RaycastHit hit, out bool surfaceNotGrappable)

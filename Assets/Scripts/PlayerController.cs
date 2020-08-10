@@ -45,6 +45,9 @@ namespace Player
 
         private Collider[] _colliderList = new Collider[100];
 
+        public AudioClip HitWallFx;
+        public float HitWallMakesSoundThreshold;
+
         private void Start()
         {
             _yRotation = transform.rotation.eulerAngles.y;
@@ -147,6 +150,13 @@ namespace Player
             return new Vector2(vec.x, vec.z);
         }
 
-        
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.relativeVelocity.magnitude > HitWallMakesSoundThreshold)
+            {
+                GetComponent<AudioSource>().PlayOneShot(HitWallFx);
+            }
+        }
+
     }
 }

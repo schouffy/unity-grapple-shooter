@@ -252,7 +252,7 @@ MonoBehaviour:
     type: 3}
   ExplosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
-  LaserSound: {fileID: 8300000, guid: 9cad6e00ad042e046bb679f9366dc7cc, type: 3}
+  LaserSound: {fileID: 8300000, guid: 09f697d650ee2c041af805707fb22905, type: 3}
 --- !u!82 &5512609444565831528
 AudioSource:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 15
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -309,7 +309,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

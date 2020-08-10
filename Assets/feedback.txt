@@ -1,0 +1,19 @@
+﻿La porte du flingue est abusée, j'ai buté tout les bots en les voyants à peine
+Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
+
+Les mouvements de base sans le grappin me paraissent un peu trop flottants/mous (déplacement de base / jump). Perso, j'aurai tendance à booster un peu plus la 
+vitesse du perso et à avoir le perso qui retombe beaucoup plus vite quand il fait un jump, histoire de rendre le tout plus punchy/ninja, et moins ballade/semi-gravité 
+qui colle beaucoup moins avec le grappin et le level design qui donne envie de faire le niveau le plus rapidement possible.
+
+Quand on utilise le grappin, le comportement fait assez physique (on sent la "tension" du grappin, ça fait très élastique) ce qui est sympa, mais pour les 
+utilisations les plus "classiques" du grappin que t'as utilisé régulièrement dans ton LD (les blocs flottants pour passer d'un bloc à l'autre), je trouve que la 
+physique du grappin ne s'y prête pas tant que ça. Je me sens un peu maladroit pour ces cas-là. Vu que l'attraction vers le point d'attache est très forte, 
+ça donne un truc nerveux (que j'aime), mais je me cogne la tête comme un con sur le bloc. Y a moyen de gérer un peu ça en relâchant le grappin avec le bon 
+timing, mais c'est pas intuitif. Le cas qui parait le plus efficace et marche le mieux avec la physique de ton grappin, c'est de monter le long d'un gros 
+bloc de béton, on se sent bien propulsé vers le haut ... mais c'est pas le genre de situation très intéressante (0 visibilité, et beaucoup moins sexy sur 
+l'intention de grimper une paroi plutôt que de se balancer au dessus du vide avec son grappin. Je sais pas trop quelle est la meilleure méthode pour régler ça
+(avoir plus de vitesse vers l'horizon pour faire un peu plus balancier ? réduire l'attraction quand la corde du grappin est courte pour éviter que le joueur se cogne ?) 
+mais vu que le grappin est le coeur de ton gameplay, si y avait un seul truc à régler, ce serait ça pour moi.
+
+Tu as aussi le problème classique (chiant à régler je suppose) du projectile du blaster qui ne va pas au crosshair. Screenshot où j'ai le crosshair sur l'ennemi et 
+où j'ai clairement l'impression que je vais lui tirer dessus ... sauf que le tir touche le sol avant. (ça touche l'endroit que j'ai entouré en rouge)
