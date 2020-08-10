@@ -104,6 +104,7 @@ public class GrapplingHook : MonoBehaviour
         }
         else if (Input.GetButtonDown("Grapple") && !canGrapple)
         {
+            Animator.SetTrigger("GrappleDenied");
             GetComponent<AudioSource>().PlayOneShot(GrappleDenied);
         }
 

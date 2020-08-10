@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
     {
         PlayerScore += value;
         EventManager.TriggerEvent(EventType.PlayerScoreUpdated, new IntegerEventParam { Value = PlayerScore });
-        Debug.Log("Collectible acquired. Score: " + PlayerScore);
 
         if (PlayerScore >= PlayerScoreToReach && !_extractionShipSummoned)
         {
@@ -74,7 +73,6 @@ public class GameManager : MonoBehaviour
 
     private void CheckpointReached(CheckpointReachedEventParam eventParams)
     {
-        Debug.Log("Checkpoint reached");
         RespawnPosition = eventParams.RespawnPosition;
     }
 
@@ -85,8 +83,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator _GameOver()
     {
-        Debug.Log("Player died. Game over");
-
         yield return new WaitForSeconds(0.5f);
         while (true)
         {
@@ -106,8 +102,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator _EndLevel()
     {
-        Debug.Log("end level");
-
         yield return new WaitForSeconds(0.5f);
         while (true)
         {

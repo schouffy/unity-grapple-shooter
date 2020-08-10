@@ -93,7 +93,6 @@ public class FlyingEnemy : EnemyAI
             if (canSeePlayer && Vector3.Distance(transform.position, _playerAimPoint.position) < MaxShootDistance)
             {
                 // if in range and player is visible, shoot player
-                Debug.DrawRay(barrelTip.position, attackDirection, Color.red);
                 if (hitInfo.collider.gameObject.tag == Constants.PlayerTag)
                 {
                     // Fire

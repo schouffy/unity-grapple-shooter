@@ -72,7 +72,6 @@ public class EnemyTurret : EnemyAI
 
             // if it can see player, shoot at it
             var attackDirection = (_playerAimPoint.position - CanonTip.position);// * 100;
-            Debug.DrawRay(CanonTip.position, attackDirection, Color.red);
             if (Physics.Raycast(CanonTip.position, attackDirection, out var hitInfo, MaxShootDistance, LasersHitLayers))
             {
                 if (hitInfo.collider.gameObject.tag == Constants.PlayerTag)

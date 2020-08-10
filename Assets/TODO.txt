@@ -20,15 +20,13 @@ joueur qui chute dans la mer
 extraction ship
 
 
-quand on tire sur un mur tout près le laser part on ne sait où
+tirer sur un mur très proche rend pas ouf
 robots volants passent à travers les murs
-Ne pas toucher les murs quand on tire sur un ennemi et qu'un mur est dans le passage
 bruit de tir quand on clic pour try again (désactiver tout le gameplay quand on meurt)
 Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
 suicidaires font trop de dégâts ?
 
 
-anim de grappin denied
 tirs et anims de flingue pas synchro CEST RELOUUUUU
 
 

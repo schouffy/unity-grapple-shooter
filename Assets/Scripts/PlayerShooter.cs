@@ -27,12 +27,17 @@ public class PlayerShooter : MonoBehaviour
             AudioSource.PlayOneShot(BlasterSound);
 
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hitInfo, 100.0f);
+            
             var target = hitInfo.point;
+            
             if (target == Vector3.zero)
                 target = transform.position + Camera.main.transform.forward * 100f;
             _lastFireTime = Time.time;
 
-            ObjectPool.Instance.SpawnFromPool(Constants.PoolTag.PlayerLaserBullet, BulletSpawnLocation.position, Quaternion.LookRotation(target - BulletSpawnLocation.position, Vector3.up));
+            Quaternion spawnDirection = Quaternion.LookRotation(target - BulletSpawnLocation.position, Vector3.up);
+
+            var laser = ObjectPool.Instance.SpawnFromPool(Constants.PoolTag.PlayerLaserBullet, BulletSpawnLocation.position, spawnDirection);
+            laser.GetComponent<LaserBullet>().SetInitialTarget(target);
         }
     }
 }

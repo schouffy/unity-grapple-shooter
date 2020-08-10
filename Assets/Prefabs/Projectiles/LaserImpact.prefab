@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2419861869698136581}
   - component: {fileID: 2419861869698136578}
   - component: {fileID: 2419861869698136579}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2419861869877678445}
   - component: {fileID: 2419861869877678444}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}

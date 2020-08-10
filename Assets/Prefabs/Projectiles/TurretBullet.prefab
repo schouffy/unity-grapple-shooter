@@ -52,6 +52,11 @@ MonoBehaviour:
   WhatToHit:
     serializedVersion: 2
     m_Bits: 257
+  ShouldChangeLayer: 0
+  InitialLayer: 
+  LayerToChangeTo: 
+  LayerChangeDelay: 0
+  ChangeLayerOn: {fileID: 0}
 --- !u!1 &3641218170174947755
 GameObject:
   m_ObjectHideFlags: 0
