@@ -13,17 +13,25 @@ Contrôles
 
 ================== A faire 
 
-
-
-
 sons
-anim de grappin denied
-tirs et anims de flingue pas synchro CEST RELOUUUUU
+polish le bruit du joueur qui tape une paroi
+joueur qui meurt sous les tirs
+joueur qui chute dans la mer
+extraction ship
+
+
 quand on tire sur un mur tout près le laser part on ne sait où
 robots volants passent à travers les murs
 Ne pas toucher les murs quand on tire sur un ennemi et qu'un mur est dans le passage
+bruit de tir quand on clic pour try again (désactiver tout le gameplay quand on meurt)
+Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
 suicidaires font trop de dégâts ?
-bruit de tir quand on clic pour try again
+
+
+anim de grappin denied
+tirs et anims de flingue pas synchro CEST RELOUUUUU
+
+
 
 
 
@@ -37,10 +45,9 @@ effet visuel quand on se fait toucher (et qui indique la direction d'où on se f
 	Plusieurs affichés en simultané ? avec un pivot décalé pour que ça reste lisible ?
 
 
+Draft du level-1
 
 
-
-faire tester sur CPC
 
 
 
@@ -48,7 +55,6 @@ modele collectible (ressource rare)
 modele extraction ship + polish l'anim d'extraction
 Améliorer UI
 crosshair
-Draft du level-1
 ennemis détruits et physics
 
 

@@ -238,6 +238,9 @@ MonoBehaviour:
   IdleHalo: {fileID: 2100000, guid: 1e267a24080f34947ad868a2150a6c49, type: 2}
   AttackHalo: {fileID: 2100000, guid: 8f266107e414fcc4c8e3557a060a3a8b, type: 2}
   Mesh: {fileID: 7580246774649896370}
+  HitAudioSource: {fileID: 0}
+  HitFx: {fileID: 8300000, guid: daeb838d9c3e46a48aede6d9d271fa98, type: 3}
+  DieFx: {fileID: 8300000, guid: b961254e1fc407f49b2bb990678eb245, type: 3}
   Status: 0
   CanonTip: {fileID: 7580246775644405554}
   Turret: {fileID: 7580246774649896364}
@@ -252,6 +255,7 @@ MonoBehaviour:
     type: 3}
   ExplosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
+  LaserAudioSource: {fileID: 5512609444565831528}
   LaserSound: {fileID: 8300000, guid: 09f697d650ee2c041af805707fb22905, type: 3}
 --- !u!82 &5512609444565831528
 AudioSource:
@@ -309,7 +313,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.779
       inSlope: 0
       outSlope: 0
       tangentMode: 0

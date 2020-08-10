@@ -36,6 +36,11 @@ public abstract class EnemyAI : Damageable
         _playerAimPoint = Constants.Player.GetComponent<PlayerLife>().AimPoint;
     }
 
+    public override void TakeDamage(float Damage, Vector3 impactPoint, Vector3? projectileDirection)
+    {
+        base.TakeDamage(Damage, impactPoint, projectileDirection);
+    }
+
     public override void Die()
     {
         OnDisable();
