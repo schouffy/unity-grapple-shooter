@@ -12,13 +12,13 @@ public class PlayerLife : Damageable
         EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new HealthEventParam() { Health = (int)Health });
     }
 
-    public override void TakeDamage(float Damage, Vector3 position, Vector3? projectileDirection)
+    public override void TakeDamage(DamageInfo damageInfo)
     {
-        base.TakeDamage(Damage, position, projectileDirection);
+        base.TakeDamage(damageInfo);
         GetComponent<AudioSource>().PlayOneShot(HitFx);
         //Debug.Log("Taken " + Damage + " damage");
 
-        EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new HealthEventParam() { Health = (int)Health, ProjectileDirection = projectileDirection });
+        EventManager.TriggerEvent(EventType.PlayerHealthUpdated, new HealthEventParam() { Health = (int)Health, ProjectileDirection = damageInfo.ProjectileDirection });
     }
 
     public override void Die()

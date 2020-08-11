@@ -45,10 +45,10 @@ public class EnemyTurret : EnemyAI
         }
     }
 
-    public override void TakeDamage(float Damage, Vector3 position, Vector3? projectileDirection)
+    public override void TakeDamage(DamageInfo damageInfo)
     {
-        Instantiate(ImpactPrefab, position, Quaternion.identity);
-        base.TakeDamage(Damage, position, projectileDirection);
+        Instantiate(ImpactPrefab, damageInfo.ImpactPoint, Quaternion.identity);
+        base.TakeDamage(damageInfo);
 
         if (Status == EnemyStatus.Idle)
         {

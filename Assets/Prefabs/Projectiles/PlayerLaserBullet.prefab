@@ -191,7 +191,8 @@ MonoBehaviour:
   MaxLifetime: 0.5
   WhatToHit:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 1281
+  ProjectileType: 0
   ShouldChangeLayer: 1
   InitialLayer: PlayerProjectiles
   LayerToChangeTo: Projectiles

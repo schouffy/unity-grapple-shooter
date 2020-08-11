@@ -52,6 +52,7 @@ MonoBehaviour:
   WhatToHit:
     serializedVersion: 2
     m_Bits: 257
+  ProjectileType: 1
   ShouldChangeLayer: 0
   InitialLayer: 
   LayerToChangeTo: 

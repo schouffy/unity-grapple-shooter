@@ -20,9 +20,6 @@ joueur qui chute dans la mer (fondu au noir, bruit de plouf, gameover)
 extraction ship (arrivée, moteurs, animation joueur et bloquage des actions, départ, musique de victoire épique, fondu au noir)
 
 
-rendre les suicidaires invicibles + les tirs ricochent sur eux
-	suicidaires font trop de dégâts ? => ça va se résoudre quand je les rendrai invincibles
-
 Draft du level-1
 
 tirer sur un mur très proche rend pas ouf

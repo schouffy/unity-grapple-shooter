@@ -13,6 +13,8 @@ public class LaserBullet : MonoBehaviour, IPoolable
     private float _spawnTime;
     private Vector3 _previousPosition;
 
+    public Constants.PoolTag ProjectileType;
+
     // This is how i handle the "target in the crosshair but there is an object in the bullet trajectory"
     // I only hit the target initially aimed, and ignore everything else
     // I display it on top of other layers to not having visual issues such as going through walls
@@ -84,7 +86,7 @@ public class LaserBullet : MonoBehaviour, IPoolable
         var damageable = objectToDamage.GetComponent<Damageable>();
         if (damageable != null)
         {
-            damageable.TakeDamage(Damage, hitInfo.point, transform.forward);
+            damageable.TakeDamage(new DamageInfo { Damage = Damage, ImpactPoint = hitInfo.point, ImpactNormal = hitInfo.normal, ProjectileDirection = transform.forward, ProjectileType = ProjectileType });
         }
         else
         {
