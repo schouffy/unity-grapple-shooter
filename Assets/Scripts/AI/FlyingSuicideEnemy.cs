@@ -2,16 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingSuicideEnemy : EnemyAI
+public class FlyingSuicideEnemy : BaseFlyingEnemy
 {
-    public EnemyStatus Status;
-
-    private Vector3 _startingPoint;
-    private Vector3 _currentPatrollingDestination;
-    public float MaxPatrolDistanceFromStartingPoint;
-    public float PatrolSpeed;
-    public float DetectionRange;
-
     public float ExplosionDamage;
     public float ExplosionRadius;
     public float AttackSpeed;
@@ -34,42 +26,11 @@ public class FlyingSuicideEnemy : EnemyAI
     {
         if (Status == EnemyStatus.Idle)
         {
-            if (Vector3.Distance(_playerAimPoint.position, transform.position) < DetectionRange)
-            {
-                Status = EnemyStatus.Attacking;
-                StartCoroutine(Attack());
-                return;
-            }
-
-            if (Vector3.Distance(_startingPoint, transform.position) > MaxPatrolDistanceFromStartingPoint
-                || Vector3.Distance(_currentPatrollingDestination, transform.position) < 1)
-            {
-                // Get a new destination around the starting point
-                _currentPatrollingDestination = GetRandomPointAround(_startingPoint, MaxPatrolDistanceFromStartingPoint);
-            }
-
-            // move to _currentPatrollingDestination
-            transform.position = Vector3.MoveTowards(transform.position, _currentPatrollingDestination, PatrolSpeed * Time.deltaTime);
-            transform.LookAt(_currentPatrollingDestination);
+            Idle();
         }
     }
 
-    Vector3 GetRandomPointAround(Vector3 center, float maxRadius)
-    {
-        int maxAttempts = 200;
-        int i = 0;
-        while (i < maxAttempts)
-        {
-            var candidate = center + Random.insideUnitSphere * maxRadius;
-            if (Physics.OverlapSphere(candidate, 4f).Length == 0)
-            {
-                return candidate;
-            }
-        }
-        throw new System.Exception("Couldn't find a random point.");
-    }
-
-    IEnumerator Attack()
+    protected override IEnumerator Attack()
     {
         Mesh.materials = _attackMaterials;
 

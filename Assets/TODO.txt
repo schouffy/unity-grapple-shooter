@@ -16,18 +16,19 @@ Contrôles
 sons
 polish le bruit du joueur qui tape une paroi
 joueur qui meurt sous les tirs
-joueur qui chute dans la mer
-extraction ship
+joueur qui chute dans la mer (fondu au noir, bruit de plouf, gameover)
+extraction ship (arrivée, moteurs, animation joueur et bloquage des actions, départ, musique de victoire épique, fondu au noir)
 
+
+rendre les suicidaires invicibles + les tirs ricochent sur eux
+	suicidaires font trop de dégâts ? => ça va se résoudre quand je les rendrai invincibles
+
+Draft du level-1
 
 tirer sur un mur très proche rend pas ouf
-robots volants passent à travers les murs
 bruit de tir quand on clic pour try again (désactiver tout le gameplay quand on meurt)
 Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
-suicidaires font trop de dégâts ?
 
-
-tirs et anims de flingue pas synchro CEST RELOUUUUU
 
 
 
@@ -43,7 +44,7 @@ effet visuel quand on se fait toucher (et qui indique la direction d'où on se f
 	Plusieurs affichés en simultané ? avec un pivot décalé pour que ça reste lisible ?
 
 
-Draft du level-1
+
 
 
 

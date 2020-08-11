@@ -270,6 +270,9 @@ MonoBehaviour:
   MaxPatrolDistanceFromStartingPoint: 20
   PatrolSpeed: 3
   DetectionRange: 30
+  AvoidTheseWhenPatrolling:
+    serializedVersion: 2
+    m_Bits: 1041
   ProjectileType: 1
   BarrelTips:
   - {fileID: 4775854549286959704}

@@ -103,6 +103,9 @@ MonoBehaviour:
   MaxPatrolDistanceFromStartingPoint: 20
   PatrolSpeed: 3
   DetectionRange: 30
+  AvoidTheseWhenPatrolling:
+    serializedVersion: 2
+    m_Bits: 1041
   ExplosionDamage: 5
   ExplosionRadius: 5
   AttackSpeed: 6
