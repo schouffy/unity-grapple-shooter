@@ -13,6 +13,10 @@ Contrôles
 
 ================== A faire 
 
+
+Draft du level-1
+
+
 sons
 polish le bruit du joueur qui tape une paroi
 joueur qui meurt sous les tirs
@@ -20,15 +24,9 @@ joueur qui chute dans la mer (fondu au noir, bruit de plouf, gameover)
 extraction ship (arrivée, moteurs, animation joueur et bloquage des actions, départ, musique de victoire épique, fondu au noir)
 
 
-Draft du level-1
-
 tirer sur un mur très proche rend pas ouf
 bruit de tir quand on clic pour try again (désactiver tout le gameplay quand on meurt)
 Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
-
-
-
-
 
 
 - modele arme et grappin
@@ -52,7 +50,7 @@ modele extraction ship + polish l'anim d'extraction
 Améliorer UI
 crosshair
 ennemis détruits et physics
-
+azerty/qwerty
 
 
 

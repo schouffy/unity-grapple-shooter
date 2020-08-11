@@ -48,9 +48,13 @@ public class BaseFlyingEnemy : EnemyAI
     {
         if (Vector3.Distance(_playerAimPoint.position, transform.position) < DetectionRange)
         {
-            Status = EnemyStatus.Attacking;
-            StartCoroutine(Attack());
-            return;
+            var seesPlayer = Physics.Raycast(transform.position, _playerAimPoint.position - transform.position, out var hitInfo, DetectionRange);
+            if (seesPlayer && hitInfo.collider.tag == Constants.PlayerTag)
+            {
+                Status = EnemyStatus.Attacking;
+                StartCoroutine(Attack());
+                return;
+            }
         }
 
         if (Vector3.Distance(_startingPoint, transform.position) > MaxPatrolDistanceFromStartingPoint
