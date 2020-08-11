@@ -20,7 +20,6 @@ public class GrapplingHook : MonoBehaviour
     private Quaternion _initialHolderRotation;
 
     [Header("Visual")]
-    public TextMesh GrappleStatus;
     private float _initialCameraFov;
     public float FovTargetWhenGrappling;
     public float MinSpeedBeforeFovIncrease;
@@ -29,6 +28,9 @@ public class GrapplingHook : MonoBehaviour
     public ParticleSystem SpeedEffect;
     private Color _fxOpaque;
     private Color _fxTransparent;
+    public Renderer GrappleMesh;
+    public Material grappleAllowedMaterial;
+    public Material grappleDeniedMaterial;
     public Animator Animator;
 
     [Header("Audio")]
@@ -86,7 +88,7 @@ public class GrapplingHook : MonoBehaviour
     private void LateUpdate()
     {
         bool canGrapple = RaycastAll(out var hitInfo, out bool surfaceNotGrappable);
-        GrappleStatus.text = canGrapple ? "YES" : "NO";
+        UpdateGrappleMesh(canGrapple);
 
         if (Input.GetButtonDown("Grapple") && canGrapple)
         {
@@ -123,7 +125,13 @@ public class GrapplingHook : MonoBehaviour
         PlaySpeedFx();
     }
 
-
+    void UpdateGrappleMesh(bool canGrapple)
+    {
+        if (canGrapple)
+            GrappleMesh.materials = new[] { GrappleMesh.materials[0], grappleAllowedMaterial };
+        else
+            GrappleMesh.materials = new[] { GrappleMesh.materials[0], grappleDeniedMaterial };
+    }
 
     void PlaySpeedFx()
     {
