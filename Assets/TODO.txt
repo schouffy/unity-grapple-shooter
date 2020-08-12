@@ -15,7 +15,15 @@ Contrôles
 
 
 Draft du level-1
-
+- tirer en l'air
+- trouver des chemins
+- avoir des panoramas vertigineux
+- sensation de flow et de fluidité
+- alterner entre grappin et fusillades
+- mélanger grappin et fusillades
+- prendre des trajectoires épiques
+- prendre de la vitesse
+- pouvoir se rattraper quand on tombe
 
 sons
 polish le bruit du joueur qui tape une paroi
