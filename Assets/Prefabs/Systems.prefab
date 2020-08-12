@@ -1323,11 +1323,15 @@ MonoBehaviour:
   - Tag: 1
     Prefab: {fileID: 3357197775458215176, guid: 2efb0f45009a98f4186c32c56d652c1e,
       type: 3}
-    Size: 100
+    Size: 50
   - Tag: 3
     Prefab: {fileID: 2419861869877678442, guid: d0274b77d01dd24458d25f58b4ee39ff,
       type: 3}
-    Size: 100
+    Size: 50
+  - Tag: 4
+    Prefab: {fileID: 3357197775458215176, guid: 495770724ceecfc47bb0326a7ef44ffc,
+      type: 3}
+    Size: 20
 --- !u!1 &3286740376628906642
 GameObject:
   m_ObjectHideFlags: 0

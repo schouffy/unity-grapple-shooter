@@ -12,7 +12,8 @@ public class Constants
         PlayerLaserBullet,
         TurretLaserBullet,
         PhysicsBullet,
-        LaserGenericImpact
+        LaserGenericImpact,
+        ReboundPlayerLaserBullet
     }
 
     public static String PlayerTag => "Player";

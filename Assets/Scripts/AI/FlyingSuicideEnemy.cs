@@ -105,7 +105,10 @@ public class FlyingSuicideEnemy : BaseFlyingEnemy
     {
         if (damageInfo.ImpactNormal.HasValue && damageInfo.ProjectileType.HasValue)
         {
-            ObjectPool.Instance.SpawnFromPool(damageInfo.ProjectileType.Value, damageInfo.ImpactPoint, Quaternion.LookRotation(damageInfo.ImpactNormal.Value));
+            var projectileTypeToSpawn = damageInfo.ProjectileType.Value;
+            if (projectileTypeToSpawn == Constants.PoolTag.PlayerLaserBullet)
+                projectileTypeToSpawn = Constants.PoolTag.ReboundPlayerLaserBullet;
+            ObjectPool.Instance.SpawnFromPool(projectileTypeToSpawn, damageInfo.ImpactPoint, Quaternion.LookRotation(damageInfo.ImpactNormal.Value));
             GetComponent<AudioSource>().PlayOneShot(LaserBounces[Random.Range(0, LaserBounces.Length)]);
         }
 

@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 50703501774691369}
   - component: {fileID: 18795174770173900}
   m_Layer: 11
-  m_Name: PlayerLaserBullet
+  m_Name: ReboundPlayerLaserBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,13 +188,13 @@ MonoBehaviour:
   Speed: 100
   Damage: 1
   Thickness: 0.05
-  MaxLifetime: 0.65
+  MaxLifetime: 0.5
   WhatToHit:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 1281
   ProjectileType: 0
-  ShouldChangeLayer: 1
-  InitialLayer: PlayerProjectiles
-  LayerToChangeTo: Projectiles
-  LayerChangeDelay: 0.21
-  ChangeLayerOn: {fileID: 1052091312024695359}
+  ShouldChangeLayer: 0
+  InitialLayer: 
+  LayerToChangeTo: 
+  LayerChangeDelay: 0
+  ChangeLayerOn: {fileID: 0}
