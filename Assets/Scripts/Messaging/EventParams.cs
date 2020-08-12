@@ -8,7 +8,8 @@ public enum EventType
     PlayerScoreUpdated,
     GameOver,
     LevelEnd,
-    CheckpointReached
+    CheckpointReached,
+    ExplosionNearby
 }
 
 public abstract class EventParam
@@ -34,4 +35,9 @@ public class HealthEventParam : EventParam
 public class CheckpointReachedEventParam : EventParam
 {
     public Vector3 RespawnPosition { get; set; }
+}
+
+public class ExplosionNearbyEventParam : EventParam
+{
+    public Vector3 Position { get; set; }
 }

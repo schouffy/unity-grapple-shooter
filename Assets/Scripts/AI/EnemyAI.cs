@@ -43,6 +43,7 @@ public abstract class EnemyAI : Damageable
 
     public override void Die()
     {
+        EventManager.TriggerEvent(EventType.ExplosionNearby, new ExplosionNearbyEventParam { Position = transform.position });
         OnDisable();
         base.Die();
     }

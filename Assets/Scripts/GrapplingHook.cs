@@ -32,6 +32,7 @@ public class GrapplingHook : MonoBehaviour
     public Material grappleAllowedMaterial;
     public Material grappleDeniedMaterial;
     public Animator Animator;
+    public CameraShake CameraShake;
 
     [Header("Audio")]
     public AudioSource AudioSource;
@@ -94,6 +95,7 @@ public class GrapplingHook : MonoBehaviour
         {
             Animator.SetTrigger("Grapple");
             AudioSource.PlayOneShot(GrappleThrown);
+            CameraShake.ShakeFromGrappleThrown();
             PullingAudioSource.Play();
             grapplingRope.Grapple(grappleTip.position, hitInfo.point);
             _hit = hitInfo.point;

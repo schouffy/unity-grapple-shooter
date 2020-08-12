@@ -11,6 +11,7 @@ public class PlayerShooter : MonoBehaviour
     private float _lastFireTime = 0;
 
     public Animator Animator;
+    public CameraShake CameraShake;
 
     [Header("Sound")]
     public AudioSource AudioSource;
@@ -25,6 +26,7 @@ public class PlayerShooter : MonoBehaviour
         {
             Animator.SetTrigger("Shoot");
             AudioSource.PlayOneShot(BlasterSound);
+            CameraShake.ShakeFromShooting();
 
             Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out var hitInfo, 100.0f);
             
