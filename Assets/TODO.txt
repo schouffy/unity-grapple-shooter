@@ -26,16 +26,28 @@ Draft du level-1
 - pouvoir se rattraper quand on tombe
 
 
-sons
-- polish le bruit du joueur qui tape une paroi
+polish
 - joueur qui meurt sous les tirs
 - joueur qui chute dans la mer (fondu au noir, bruit de plouf, gameover)
+- Améliorer UI hp et score
+- Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
+
+
+- grappin : ajouter de la force de l'avant / vers là où le joueur regarde ?
+- bruit du joueur qui tape une paroi
 - extraction ship (arrivée, moteurs, animation joueur et bloquage des actions, départ, musique de victoire épique, fondu au noir)
+	- modèle extraction ship
+- tirer sur un mur très proche rend pas ouf
+- modele collectible
 
 
-tirer sur un mur très proche rend pas ouf
-bruit de tir quand on clic pour try again (désactiver tout le gameplay quand on meurt)
-Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
+
+Menu principal
+- Splash screen
+- indication de chargement entre les niveaux/game over
+
+Menu pause
+- options: sensibilité souris, remapping inputs
 
 
 modele arme et grappin
@@ -50,27 +62,20 @@ effet visuel quand on se fait toucher (et qui indique la direction d'où on se f
 
 
 
-modele collectible (ressource rare)
-modele extraction ship + polish l'anim d'extraction
-Améliorer UI
-ennemis détruits et physics
-
 
 
 Ennemis
-- Drop de la vie
+- carcasses et physics
+- Drop de la vie (?)
 - regarder la destination de déplacement + lerp la rotation
 - Ajouter de l'imprécision dans les tirs
 - précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
-- particle genre ellipses anti grav
 
-tourelles missiles guidés qu'on peut détruire..
+
 respawn d'ennemi ?
 
 vault, climb
-shader pour faire bouger l'herbe
 
-défendre l'extraction ship ?
 
 
 - level 1
@@ -81,3 +86,4 @@ défendre l'extraction ship ?
 
 - level 3
 	plein d'iles flottantes 
+

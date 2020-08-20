@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShooter : MonoBehaviour
+public class PlayerShooter : DisableOnGameOverMonoBehaviour
 {
     public Transform BulletSpawnLocation;
     public LayerMask LasersHitLayers;
@@ -16,7 +16,6 @@ public class PlayerShooter : MonoBehaviour
     [Header("Sound")]
     public AudioSource AudioSource;
     public AudioClip BlasterSound;
-
 
     void Update()
     {

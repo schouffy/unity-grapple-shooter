@@ -5,7 +5,7 @@ using Rope;
 using Unity.Collections;
 using UnityEngine;
 
-public class GrapplingHook : MonoBehaviour
+public class GrapplingHook : DisableOnGameOverMonoBehaviour
 {
     [Header("Grappling")]
     public GrapplingRope grapplingRope;
