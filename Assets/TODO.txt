@@ -27,9 +27,10 @@ Draft du level-1
 
 
 polish
+- Améliorer UI hp et score
 - joueur qui meurt sous les tirs
 - joueur qui chute dans la mer (fondu au noir, bruit de plouf, gameover)
-- Améliorer UI hp et score
+
 - Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
 
 

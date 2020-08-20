@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
             StartCoroutine(_ShowHurtScreen(healthEventParam));
         _currentHealth = healthEventParam.Health;
 
-        Health.text = healthEventParam.Health.ToString();
+        Health.text = $"<b>+</b>{healthEventParam.Health.ToString()}";
     }
     IEnumerator _ShowHurtScreen(HealthEventParam healthEventParam)
     {
@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateScore(int score)
     {
-        Score.text = score + "/" + GameManager.instance.PlayerScoreToReach.ToString();
+        Score.text = $"{score}<b>/</b>{GameManager.instance.PlayerScoreToReach.ToString()}";
     }
 
     void GameOver()
