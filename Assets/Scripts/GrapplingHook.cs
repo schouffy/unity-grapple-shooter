@@ -154,6 +154,12 @@ public class GrapplingHook : DisableOnGameOverMonoBehaviour
             Mathf.Clamp(player.playerRigidBody.velocity.magnitude, 0, WindPassingByThreshold) / WindPassingByThreshold);
     }
 
+    protected override void GameOver()
+    {
+        WindPassingByAudioSource.Stop();
+        base.GameOver();
+    }
+
     private bool RaycastAll(out RaycastHit hit, out bool surfaceNotGrappable)
     {
         bool hasHitUngrappable = false;

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject GameOverScreen;
+    public Image GameOverBlackOverlay;
+    public GameObject GameOverText;
     public GameObject LevelEndScreen;
     public GameObject CheckpointReachedScreen;
     public GameObject ExtractionShipOnTheWayScreen;
@@ -24,7 +26,7 @@ public class UIManager : MonoBehaviour
     {
         EventManager.StartListening(EventType.PlayerHealthUpdated, (p) => this.UpdateHealth((HealthEventParam)p));
         EventManager.StartListening(EventType.PlayerScoreUpdated, (p) => this.UpdateScore(((IntegerEventParam)p).Value));
-        EventManager.StartListening(EventType.GameOver, (p) => this.GameOver());
+        EventManager.StartListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
         EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel());
         EventManager.StartListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StartListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
@@ -34,7 +36,7 @@ public class UIManager : MonoBehaviour
     {
         EventManager.StopListening(EventType.PlayerHealthUpdated, (p) => this.UpdateHealth((HealthEventParam)p));
         EventManager.StopListening(EventType.PlayerScoreUpdated, (p) => this.UpdateScore(((IntegerEventParam)p).Value));
-        EventManager.StopListening(EventType.GameOver, (p) => this.GameOver());
+        EventManager.StopListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
         EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel());
         EventManager.StopListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StopListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
@@ -74,11 +76,36 @@ public class UIManager : MonoBehaviour
         Score.text = $"{score}<b>/</b>{GameManager.instance.PlayerScoreToReach.ToString()}";
     }
 
-    void GameOver()
+    void GameOver(GameOverEventParam eventParam)
     {
         Health.gameObject.SetActive(false);
         Score.gameObject.SetActive(false);
+        StartCoroutine(_GameOver(eventParam));
+    }
+
+    IEnumerator _GameOver(GameOverEventParam eventParam)
+    {
         GameOverScreen.SetActive(true);
+
+        var color = GameOverBlackOverlay.color;
+        
+        if (eventParam != null && eventParam.FadeToBlackTime > 0)
+        {
+            float currentTime = 0, start = 0;
+            while (currentTime < eventParam.FadeToBlackTime)
+            {
+                currentTime += Time.deltaTime;
+                color.a = Mathf.Lerp(start, 1f, currentTime / eventParam.FadeToBlackTime);
+                GameOverBlackOverlay.color = color;
+                yield return null;
+            }
+        }
+        else
+        {
+            color.a = 1;
+            GameOverBlackOverlay.color = color;
+        }
+        GameOverText.SetActive(true);
     }
 
     void EndLevel()

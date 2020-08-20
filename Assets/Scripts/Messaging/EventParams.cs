@@ -41,3 +41,8 @@ public class ExplosionNearbyEventParam : EventParam
 {
     public Vector3 Position { get; set; }
 }
+
+public class GameOverEventParam : EventParam
+{
+    public float FadeToBlackTime { get; set; }
+}

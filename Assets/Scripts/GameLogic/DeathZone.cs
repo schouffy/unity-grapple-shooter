@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class DeathZone : PlayerTriggerZone
 {
+    private bool _alreadyEntered;
+    public float FadeToBlackTime;
+
     public override void OnPlayerEnter(GameObject player)
     {
+        if (_alreadyEntered)
+            return;
+
+        _alreadyEntered = true;
+
         base.OnPlayerEnter(player);
-        EventManager.TriggerEvent(EventType.GameOver, null);
+        StartCoroutine(GameOver(player));
+    }
+
+    IEnumerator GameOver(GameObject player)
+    {
+        EventManager.TriggerEvent(EventType.GameOver, new GameOverEventParam { FadeToBlackTime = FadeToBlackTime });
+
+        yield return new WaitForSeconds(FadeToBlackTime);
+        GetComponent<AudioSource>().Play();
         player.GetComponent<Rigidbody>().isKinematic = true; // to make player stop falling and reaching big position numbers
     }
 }

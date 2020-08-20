@@ -527,6 +527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 3286740376924074683}
+  GameOverBlackOverlay: {fileID: 3286740376690602715}
+  GameOverText: {fileID: 3286740376628906642}
   LevelEndScreen: {fileID: 3286740375500784948}
   CheckpointReachedScreen: {fileID: 3286740375022207693}
   ExtractionShipOnTheWayScreen: {fileID: 3286740375376021990}
@@ -1191,7 +1193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3286740376628906643
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1232,7 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1266,7 +1268,7 @@ GameObject:
   - component: {fileID: 3286740376690602712}
   - component: {fileID: 3286740376690602715}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,7 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

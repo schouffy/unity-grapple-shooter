@@ -23,6 +23,9 @@ public class PlayerLife : Damageable
 
     public override void Die()
     {
+        // TODO death sound
+        // camera falls
+        // fade to black
         EventManager.TriggerEvent(EventType.GameOver, null);
     }
 }

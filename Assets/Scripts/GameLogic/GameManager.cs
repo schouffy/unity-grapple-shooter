@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         EventManager.StartListening(EventType.CollectibleAcquired, (collectible) => this.PlayerCollected(((IntegerEventParam)collectible).Value));
-        EventManager.StartListening(EventType.GameOver, (p) => this.GameOver());
+        EventManager.StartListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
         EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel());
         EventManager.StartListening(EventType.CheckpointReached, (p) => this.CheckpointReached((CheckpointReachedEventParam)p));
     }
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         EventManager.StopListening(EventType.CollectibleAcquired, (collectible) => this.PlayerCollected(((IntegerEventParam)collectible).Value));
-        EventManager.StopListening(EventType.GameOver, (p) => this.GameOver());
+        EventManager.StopListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
         EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel());
         EventManager.StopListening(EventType.CheckpointReached, (p) => this.CheckpointReached((CheckpointReachedEventParam)p));
     }
@@ -76,14 +76,18 @@ public class GameManager : MonoBehaviour
         RespawnPosition = eventParams.RespawnPosition;
     }
 
-    private void GameOver()
+    private void GameOver(GameOverEventParam eventParam)
     {
-        StartCoroutine(_GameOver());
+        StartCoroutine(_GameOver(eventParam));
     }
 
-    IEnumerator _GameOver()
+    IEnumerator _GameOver(GameOverEventParam eventParam)
     {
-        yield return new WaitForSeconds(0.5f);
+        if (eventParam != null && eventParam.FadeToBlackTime > 0)
+        {
+            yield return new WaitForSeconds(eventParam.FadeToBlackTime);
+        }
+
         while (true)
         {
             if (Input.anyKey)
