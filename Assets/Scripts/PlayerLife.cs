@@ -6,6 +6,8 @@ public class PlayerLife : Damageable
 {
     public Transform AimPoint;
     public AudioClip HitFx;
+    public AudioClip DeathFx;
+    public float GameOverFadeToBlackTime;
 
     void Start()
     {
@@ -23,9 +25,13 @@ public class PlayerLife : Damageable
 
     public override void Die()
     {
-        // TODO death sound
         // camera falls
+        GetComponent<Animator>().SetTrigger("Die");
+
+        // death sound
+        GetComponent<AudioSource>().PlayOneShot(DeathFx);
+
         // fade to black
-        EventManager.TriggerEvent(EventType.GameOver, null);
+        EventManager.TriggerEvent(EventType.GameOver, new GameOverEventParam { FadeToBlackTime = GameOverFadeToBlackTime });
     }
 }
