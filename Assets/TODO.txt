@@ -15,9 +15,9 @@ Contrôles
 
 
 polish
-- Quand tu tombe de très haut les bras se décollent du corps avec l'acceleration
-- extraction ship (moèle sommaire, arrivée, moteurs, animation joueur et bloquage des actions, départ, musique de victoire épique, fondu au noir)
 - grappin : ajouter de la force de l'avant / vers là où le joueur regarde ?
+- extraction ship (modèle sommaire, arrivée, moteurs, animation joueur et bloquage des actions, décrochage grapin, départ, musique de victoire épique, fondu au noir)
+
 
 
 Menu principal
