@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         EventManager.StartListening(EventType.CollectibleAcquired, (collectible) => this.PlayerCollected(((IntegerEventParam)collectible).Value));
         EventManager.StartListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
-        EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel());
+        EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel((EndLevelEventParam)p));
         EventManager.StartListening(EventType.CheckpointReached, (p) => this.CheckpointReached((CheckpointReachedEventParam)p));
     }
 
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         EventManager.StopListening(EventType.CollectibleAcquired, (collectible) => this.PlayerCollected(((IntegerEventParam)collectible).Value));
         EventManager.StopListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
-        EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel());
+        EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel((EndLevelEventParam)p));
         EventManager.StopListening(EventType.CheckpointReached, (p) => this.CheckpointReached((CheckpointReachedEventParam)p));
     }
 
@@ -99,14 +99,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void EndLevel()
+    private void EndLevel(EndLevelEventParam eventParam)
     {
-        StartCoroutine(_EndLevel());
+        StartCoroutine(_EndLevel(eventParam));
     }
 
-    IEnumerator _EndLevel()
+    IEnumerator _EndLevel(EndLevelEventParam eventParam)
     {
-        yield return new WaitForSeconds(0.5f);
+        if (eventParam != null && eventParam.FadeToBlackTime > 0)
+        {
+            yield return new WaitForSeconds(eventParam.FadeToBlackTime);
+        }
+
         while (true)
         {
             if (Input.anyKey)

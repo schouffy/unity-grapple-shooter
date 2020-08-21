@@ -19,8 +19,9 @@ polish
 
 
 
-Menu principal
+Menu principal (scène menu)
 - Splash screen
+- tuto / start
 - indication de chargement entre les niveaux/game over
 
 Menu pause

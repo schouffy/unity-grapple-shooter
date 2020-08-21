@@ -46,3 +46,8 @@ public class GameOverEventParam : EventParam
 {
     public float FadeToBlackTime { get; set; }
 }
+
+public class EndLevelEventParam : EventParam
+{
+    public float FadeToBlackTime { get; set; }
+}

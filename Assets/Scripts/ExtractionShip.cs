@@ -6,6 +6,9 @@ public class ExtractionShip : MonoBehaviour
 {
     public Animator ShipAnimator;
     public Transform PlayerExtractPosition;
+    public AudioSource DepartureFxSource;
+    public AudioClip DepartureThrustFx;
+    public AudioClip DepartureMusic;
 
     private void Awake()
     {
@@ -53,16 +56,20 @@ public class ExtractionShip : MonoBehaviour
 
         // ship moves away
         ShipAnimator.SetTrigger("Departure");
-        yield return new WaitForSeconds(7f);
+        DepartureFxSource.PlayOneShot(DepartureThrustFx);
+        yield return new WaitForSeconds(3f);
+        DepartureFxSource.PlayOneShot(DepartureMusic);
+        yield return new WaitForSeconds(3f);
 
         // fade to black
         // load next level
-        EventManager.TriggerEvent(EventType.LevelEnd, null);
+        EventManager.TriggerEvent(EventType.LevelEnd, new EndLevelEventParam { FadeToBlackTime = 2f });
     }
 
     IEnumerator MovePlayerInShip()
     {
         Constants.Player.GetComponent<Rigidbody>().isKinematic = true;
+        Constants.Player.GetComponentInChildren<GrapplingHook>().Ungrapple();
         var playerTransform = Constants.Player.transform;
         while (true)
         {

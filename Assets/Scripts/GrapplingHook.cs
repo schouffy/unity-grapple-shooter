@@ -86,6 +86,12 @@ public class GrapplingHook : DisableOnGameOverMonoBehaviour
         }
     }
 
+    public void Ungrapple()
+    {
+        grapplingRope.UnGrapple();
+        PullingAudioSource.Stop();
+    }
+
     private void LateUpdate()
     {
         bool canGrapple = RaycastAll(out var hitInfo, out bool surfaceNotGrappable);
@@ -114,8 +120,7 @@ public class GrapplingHook : DisableOnGameOverMonoBehaviour
 
         if (Input.GetButtonUp("Grapple"))
         {
-            grapplingRope.UnGrapple();
-            PullingAudioSource.Stop();
+            Ungrapple();
         }
 
         if (Input.GetButton("Grapple") && grapplingRope.Grappling)

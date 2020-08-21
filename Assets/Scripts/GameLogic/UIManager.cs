@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject GameOverScreen;
-    public Image GameOverBlackOverlay;
+    public GameObject EndScreen;
+    public Image BlackOverlay;
     public GameObject GameOverText;
-    public GameObject LevelEndScreen;
+    public GameObject LevelCompleteText;
     public GameObject CheckpointReachedScreen;
     public GameObject ExtractionShipOnTheWayScreen;
     public GameObject HurtOverlay;
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
         EventManager.StartListening(EventType.PlayerHealthUpdated, (p) => this.UpdateHealth((HealthEventParam)p));
         EventManager.StartListening(EventType.PlayerScoreUpdated, (p) => this.UpdateScore(((IntegerEventParam)p).Value));
         EventManager.StartListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
-        EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel());
+        EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel((EndLevelEventParam)p));
         EventManager.StartListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StartListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
     }
@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
         EventManager.StopListening(EventType.PlayerHealthUpdated, (p) => this.UpdateHealth((HealthEventParam)p));
         EventManager.StopListening(EventType.PlayerScoreUpdated, (p) => this.UpdateScore(((IntegerEventParam)p).Value));
         EventManager.StopListening(EventType.GameOver, (p) => this.GameOver((GameOverEventParam)p));
-        EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel());
+        EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel((EndLevelEventParam)p));
         EventManager.StopListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StopListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
     }
@@ -85,34 +85,45 @@ public class UIManager : MonoBehaviour
 
     IEnumerator _GameOver(GameOverEventParam eventParam)
     {
-        GameOverScreen.SetActive(true);
+        EndScreen.SetActive(true);
+        yield return FadeToBlack(eventParam?.FadeToBlackTime);
+        GameOverText.SetActive(true);
+    }
 
-        var color = GameOverBlackOverlay.color;
-        
-        if (eventParam != null && eventParam.FadeToBlackTime > 0)
+    void EndLevel(EndLevelEventParam eventParam)
+    {
+        Health.gameObject.SetActive(false);
+        Score.gameObject.SetActive(false);
+        StartCoroutine(_EndLevel(eventParam));
+    }
+
+    IEnumerator FadeToBlack(float? fadeToBlackTime)
+    {
+        var color = BlackOverlay.color;
+
+        if (fadeToBlackTime.HasValue && fadeToBlackTime.Value > 0)
         {
             float currentTime = 0, start = 0;
-            while (currentTime < eventParam.FadeToBlackTime)
+            while (currentTime < fadeToBlackTime.Value)
             {
                 currentTime += Time.deltaTime;
-                color.a = Mathf.Lerp(start, 1f, currentTime / eventParam.FadeToBlackTime);
-                GameOverBlackOverlay.color = color;
+                color.a = Mathf.Lerp(start, 1f, currentTime / fadeToBlackTime.Value);
+                BlackOverlay.color = color;
                 yield return null;
             }
         }
         else
         {
             color.a = 1;
-            GameOverBlackOverlay.color = color;
+            BlackOverlay.color = color;
         }
-        GameOverText.SetActive(true);
     }
 
-    void EndLevel()
+    IEnumerator _EndLevel(EndLevelEventParam eventParam)
     {
-        Health.gameObject.SetActive(false);
-        Score.gameObject.SetActive(false);
-        LevelEndScreen.SetActive(true);
+        EndScreen.SetActive(true);
+        yield return FadeToBlack(eventParam?.FadeToBlackTime);
+        LevelCompleteText.SetActive(true);
     }
 
     void CheckpointReached()
