@@ -5913,8 +5913,8 @@ MonoBehaviour:
   GrappleThrown: {fileID: 8300000, guid: 3198c4196c883414b8d414994fb970b5, type: 3}
   GrappleDenied: {fileID: 8300000, guid: 53fe2072a485d05418d87da01a1e7ba8, type: 3}
   RaycastMaxRadius: 0.8
-  pullForce: 12
-  pushForce: 6
+  pullForce: 10
+  pushForce: 35
   yMultiplier: 1.5
   minPhysicsDistance: 0
   maxPhysicsDistance: 50
