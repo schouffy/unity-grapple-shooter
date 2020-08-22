@@ -14,9 +14,6 @@ Contrôles
 ================== A faire 
 
 
-polish
-- extraction ship (modèle sommaire, arrivée, moteurs, animation joueur et bloquage des actions, décrochage grapin, départ, musique de victoire épique, fondu au noir)
-
 
 
 Menu principal (scène menu)
@@ -47,7 +44,7 @@ polish
 - tirer sur un mur très proche rend pas ouf
 
 
-modele collectible
+modele collectible + son collect
 
 modele arme et grappin
 - arme: blaster de star wars, ne pas oublier la jauge de chauffe

@@ -68,17 +68,31 @@ public class ExtractionShip : MonoBehaviour
 
     IEnumerator MovePlayerInShip()
     {
+        var playerController = Constants.Player.GetComponent<PlayerController>();
+        var playerTransform = Constants.Player.transform;
+
         Constants.Player.GetComponent<Rigidbody>().isKinematic = true;
         Constants.Player.GetComponentInChildren<GrapplingHook>().Ungrapple();
-        var playerTransform = Constants.Player.transform;
+        playerController.RemoveControlFromPlayer();
+        
         while (true)
         {
             playerTransform.position = Vector3.MoveTowards(playerTransform.position, PlayerExtractPosition.position, 2f * Time.deltaTime);
-            playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, PlayerExtractPosition.rotation, Time.deltaTime);
-
+            
             if (Vector3.Distance(playerTransform.position, PlayerExtractPosition.position) < 1)
             {
                 playerTransform.parent = PlayerExtractPosition;
+
+                var beginRotationTime = Time.time;
+                while (Time.time - beginRotationTime < 2f)
+                {
+                    playerTransform.localRotation = Quaternion.Euler(
+                        0,
+                        Mathf.Lerp(playerTransform.localRotation.eulerAngles.y, 0, 1.5f * Time.deltaTime),
+                        0);
+                    playerController.playerCameraHolder.localRotation = Quaternion.identity;
+                    yield return null;
+                }
                 break;
             }
             yield return null;

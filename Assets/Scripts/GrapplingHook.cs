@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Player;
 using Rope;
 using Unity.Collections;
 using UnityEngine;
