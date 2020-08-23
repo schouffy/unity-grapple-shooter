@@ -5199,8 +5199,8 @@ MonoBehaviour:
   maxSpeed: 9
   friction: 16
   airFriction: 2
-  MouseSensitivityX: 0.5
-  MouseSensitivityY: 0.3
+  MouseSensitivityX: 0.8
+  MouseSensitivityY: 0.5
   rotationBounds: 88
   extraGravity: 1.5
   whatIsGround:

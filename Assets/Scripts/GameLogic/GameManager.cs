@@ -36,11 +36,17 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         PlayerScore = 0;
-        
+
         if (RespawnPosition.HasValue)
         {
             Constants.Player.transform.position = RespawnPosition.Value;
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Pause"))
+            TogglePause();
     }
 
     void OnEnable()
@@ -120,5 +126,13 @@ public class GameManager : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    private bool _paused;
+    void TogglePause()
+    {
+        _paused = !_paused;
+        Time.timeScale = _paused ? 0 : 1;
+        EventManager.TriggerEvent(EventType.TogglePause, null);
     }
 }

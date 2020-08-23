@@ -9,7 +9,9 @@ public enum EventType
     GameOver,
     LevelEnd,
     CheckpointReached,
-    ExplosionNearby
+    ExplosionNearby,
+    TogglePause,
+    PlayerPrefsUpdated
 }
 
 public abstract class EventParam

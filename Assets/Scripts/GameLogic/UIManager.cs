@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject PauseScreen;
+    public Slider MouseSensitivityX;
+    public Slider MouseSensitivityY;
     public GameObject EndScreen;
     public Image BlackOverlay;
     public GameObject GameOverText;
@@ -14,11 +17,14 @@ public class UIManager : MonoBehaviour
     public GameObject HurtOverlay;
     public Image HurtOverlayDamageDirection;
     private int? _currentHealth;
-    public UnityEngine.UI.Text Health;
-    public UnityEngine.UI.Text Score;
+    public Text Health;
+    public Text Score;
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
+        ReloadPlayerPrefs();
         UpdateScore(0);
     }
 
@@ -30,6 +36,7 @@ public class UIManager : MonoBehaviour
         EventManager.StartListening(EventType.LevelEnd, (p) => this.EndLevel((EndLevelEventParam)p));
         EventManager.StartListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StartListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
+        EventManager.StartListening(EventType.TogglePause, (p) => this.TogglePause());
     }
 
     void OnDisable()
@@ -40,6 +47,7 @@ public class UIManager : MonoBehaviour
         EventManager.StopListening(EventType.LevelEnd, (p) => this.EndLevel((EndLevelEventParam)p));
         EventManager.StopListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StopListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
+        EventManager.StopListening(EventType.TogglePause, (p) => this.TogglePause());
     }
 
     void UpdateHealth(HealthEventParam healthEventParam)
@@ -146,6 +154,41 @@ public class UIManager : MonoBehaviour
         ExtractionShipOnTheWayScreen.SetActive(true);
         yield return new WaitForSeconds(2f);
         ExtractionShipOnTheWayScreen.SetActive(false);
+    }
+
+    private bool _paused = false;
+    void TogglePause()
+    {
+        _paused = !_paused;
+
+        if (_paused)
+        {
+            ReloadPlayerPrefs();
+            PauseScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            PauseScreen.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+    void ReloadPlayerPrefs()
+    {
+        MouseSensitivityX.value = PlayerPrefs.GetFloat(Constants.PlayerPrefs.MouseSensitivityX, Constants.Player.GetComponent<PlayerController>().MouseSensitivityX);
+        MouseSensitivityY.value = PlayerPrefs.GetFloat(Constants.PlayerPrefs.MouseSensitivityY, Constants.Player.GetComponent<PlayerController>().MouseSensitivityY);
+    }
+
+    public void UpdateMouseSensitivity()
+    {
+        if (!_paused)
+            return; // initial change at startup
+
+        PlayerPrefs.SetFloat(Constants.PlayerPrefs.MouseSensitivityX, MouseSensitivityX.value);
+        PlayerPrefs.SetFloat(Constants.PlayerPrefs.MouseSensitivityY, MouseSensitivityY.value);
+
+        EventManager.TriggerEvent(EventType.PlayerPrefsUpdated, null);
     }
 
 }

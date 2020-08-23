@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
     public float airFriction;
 
     [Header("Rotation")]
+    [Range(0, 2)]
     public float MouseSensitivityX;
+    [Range(0, 2)]
     public float MouseSensitivityY;
     public float rotationBounds;
 
@@ -49,6 +51,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _yRotation = transform.rotation.eulerAngles.y;
+        ReloadPlayerPrefs();
+        EventManager.StartListening(EventType.TogglePause, (p) => this.TogglePause());
+        EventManager.StartListening(EventType.PlayerPrefsUpdated, (p) => this.ReloadPlayerPrefs());
     }
 
     private void FixedUpdate()
@@ -102,7 +107,6 @@ public class PlayerController : MonoBehaviour
 
     private void Rotation()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X") * MouseSensitivityX, Input.GetAxisRaw("Mouse Y") * MouseSensitivityY);
 
         _xRotation -= mouseDelta.y;
@@ -164,5 +168,36 @@ public class PlayerController : MonoBehaviour
         this.GetComponentInChildren<GrapplingHook>().enabled = false;
 
         this.enabled = false;
+    }
+
+    public void GiveControlToPlayer()
+    {
+        this.GetComponentInChildren<HandsSpring>().enabled = true;
+        this.GetComponentInChildren<HandsSway>().enabled = true;
+        this.GetComponentInChildren<PlayerShooter>().enabled = true;
+        this.GetComponentInChildren<GrapplingHook>().enabled = true;
+
+        this.enabled = true;
+    }
+
+    private bool _paused = false;
+    void TogglePause()
+    {
+        _paused = !_paused;
+
+        if (_paused)
+        {
+            RemoveControlFromPlayer();
+        }
+        else
+        {
+            GiveControlToPlayer();
+        }
+    }
+
+    void ReloadPlayerPrefs()
+    {
+        this.MouseSensitivityX = PlayerPrefs.GetFloat(Constants.PlayerPrefs.MouseSensitivityX, this.MouseSensitivityX);
+        this.MouseSensitivityY = PlayerPrefs.GetFloat(Constants.PlayerPrefs.MouseSensitivityY, this.MouseSensitivityY);
     }
 }

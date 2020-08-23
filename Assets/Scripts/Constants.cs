@@ -39,6 +39,12 @@ public class Constants
             return _shipObject;
         }
     }
+
+    public class PlayerPrefs
+    {
+        public static String MouseSensitivityX => "MouseSensitivityX";
+        public static String MouseSensitivityY => "MouseSensitivityY";
+    }
 }
 
 public enum EnemyStatus

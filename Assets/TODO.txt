@@ -21,10 +21,6 @@ Menu principal (scène menu)
 - tuto / start
 - indication de chargement entre les niveaux/game over
 
-Menu pause
-- options: sensibilité souris, remapping inputs
-
-
 
 
 Draft du level-1
@@ -44,7 +40,7 @@ polish
 - tirer sur un mur très proche rend pas ouf
 
 
-modele collectible + son collect
+modele collectible + son collect et effet UI
 
 modele arme et grappin
 - arme: blaster de star wars, ne pas oublier la jauge de chauffe
