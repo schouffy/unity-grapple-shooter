@@ -94,11 +94,22 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(eventParam.FadeToBlackTime);
         }
 
+        yield return LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator LoadScene(int sceneIndex)
+    {
         while (true)
         {
             if (Input.anyKey)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                EventManager.TriggerEvent(EventType.LoadScene, null);
+                AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
+
+                while (!asyncLoad.isDone)
+                {
+                    yield return null;
+                }
                 break;
             }
             yield return null;
@@ -117,15 +128,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(eventParam.FadeToBlackTime);
         }
 
-        while (true)
-        {
-            if (Input.anyKey)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                break;
-            }
-            yield return null;
-        }
+        yield return LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private bool _paused;

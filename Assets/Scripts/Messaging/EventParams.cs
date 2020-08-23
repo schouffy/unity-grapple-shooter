@@ -11,7 +11,8 @@ public enum EventType
     CheckpointReached,
     ExplosionNearby,
     TogglePause,
-    PlayerPrefsUpdated
+    PlayerPrefsUpdated,
+    LoadScene
 }
 
 public abstract class EventParam

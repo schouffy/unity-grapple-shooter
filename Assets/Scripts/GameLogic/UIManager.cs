@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject CheckpointReachedScreen;
     public GameObject ExtractionShipOnTheWayScreen;
     public GameObject HurtOverlay;
+    public GameObject Loading;
     public Image HurtOverlayDamageDirection;
     private int? _currentHealth;
     public Text Health;
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
         EventManager.StartListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StartListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
         EventManager.StartListening(EventType.TogglePause, (p) => this.TogglePause());
+        EventManager.StartListening(EventType.LoadScene, (p) => this.LoadSceneTriggered());
     }
 
     void OnDisable()
@@ -48,6 +50,7 @@ public class UIManager : MonoBehaviour
         EventManager.StopListening(EventType.CheckpointReached, (p) => this.CheckpointReached());
         EventManager.StopListening(EventType.SummonExtractionShip, (p) => this.ExtractionShipOnTheWay());
         EventManager.StopListening(EventType.TogglePause, (p) => this.TogglePause());
+        EventManager.StopListening(EventType.LoadScene, (p) => this.LoadSceneTriggered());
     }
 
     void UpdateHealth(HealthEventParam healthEventParam)
@@ -82,6 +85,11 @@ public class UIManager : MonoBehaviour
     void UpdateScore(int score)
     {
         Score.text = $"{score}<b>/</b>{GameManager.instance.PlayerScoreToReach.ToString()}";
+    }
+
+    void LoadSceneTriggered()
+    {
+        Loading.SetActive(true);
     }
 
     void GameOver(GameOverEventParam eventParam)

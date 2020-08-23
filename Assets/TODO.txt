@@ -14,12 +14,11 @@ Contrôles
 ================== A faire 
 
 
-
-
 Menu principal (scène menu)
-- Splash screen
-- tuto / start
-- indication de chargement entre les niveaux/game over
+- a polish
+- attention fixe, pas dépendante de la résolution
+
+/!\ curseur apparait figé au milieu sur la build finale
 
 
 
