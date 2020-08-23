@@ -11,8 +11,10 @@ public class Collectible : MonoBehaviour
         if (other.tag == Constants.PlayerTag)
         {
             EventManager.TriggerEvent(EventType.CollectibleAcquired, new IntegerEventParam { Value = Value });
-
-            Destroy(gameObject);
+            GetComponent<AudioSource>().Play();
+            GetComponent<Collider>().enabled = false;
+            GetComponentInChildren<Renderer>().enabled = false;
+            Destroy(gameObject, 2f);
         }
     }
 }

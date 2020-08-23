@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject CheckpointReachedScreen;
     public GameObject ExtractionShipOnTheWayScreen;
     public GameObject HurtOverlay;
+    public GameObject CollectOverlay;
     public GameObject Loading;
     public Image HurtOverlayDamageDirection;
     private int? _currentHealth;
@@ -85,6 +86,14 @@ public class UIManager : MonoBehaviour
     void UpdateScore(int score)
     {
         Score.text = $"{score}<b>/</b>{GameManager.instance.PlayerScoreToReach.ToString()}";
+        StartCoroutine(_ShowUpdateScoreOverlay());
+    }
+
+    IEnumerator _ShowUpdateScoreOverlay()
+    {
+        CollectOverlay.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        CollectOverlay.SetActive(false);
     }
 
     void LoadSceneTriggered()
