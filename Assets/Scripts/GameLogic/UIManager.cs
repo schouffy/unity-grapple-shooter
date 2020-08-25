@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
         //Debug.DrawRay(Constants.Player.transform.position, -healthEventParam.ProjectileDirection.Value * 10, Color.cyan, 5f);
 
         //-healthEventParam.ProjectileDirection.Value;
-        HurtOverlayDamageDirection.rectTransform.rotation = Quaternion.Euler(0, 0, 90); // angle on z 
+        //HurtOverlayDamageDirection.rectTransform.rotation = Quaternion.Euler(0, 0, 90); // angle on z 
         // TODO
 
         HurtOverlay.SetActive(true);
@@ -86,7 +86,8 @@ public class UIManager : MonoBehaviour
     void UpdateScore(int score)
     {
         Score.text = $"{score}<b>/</b>{GameManager.instance.PlayerScoreToReach.ToString()}";
-        StartCoroutine(_ShowUpdateScoreOverlay());
+        if (score > 0)
+            StartCoroutine(_ShowUpdateScoreOverlay());
     }
 
     IEnumerator _ShowUpdateScoreOverlay()

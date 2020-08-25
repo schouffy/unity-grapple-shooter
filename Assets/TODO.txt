@@ -1,14 +1,14 @@
 
 
 
-auto regen vie
-équilibrage HP/dégâts
-jauge de chauffe arme
+équilibrage HP/dégâts player et ennemis
 écran checkpoint reached a polish
 écran extraction ship à polish
 
 
 manque son de collect
+son auto regen
+son tir interdit + cooldown débute
 
 
 

@@ -59,6 +59,7 @@ public class LaserBullet : MonoBehaviour, IPoolable
         if (Physics.SphereCast(new Ray(_previousPosition, transform.position - _previousPosition), Thickness, 
             out var hitInfo, (transform.position - _previousPosition).magnitude, WhatToHit))
         {
+            // This condition is to avoid bullet hitting a wall between the gun tip and target that wasn't expected to be hit
             if (_initialTarget.HasValue && Vector3.Distance(hitInfo.point, _initialTarget.Value) > 1)
             {
             }
