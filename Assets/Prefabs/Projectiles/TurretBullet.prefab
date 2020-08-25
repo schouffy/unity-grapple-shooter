@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 100
-  Damage: 1
+  Damage: 10
   Thickness: 0.05
   MaxLifetime: 2
   WhatToHit:

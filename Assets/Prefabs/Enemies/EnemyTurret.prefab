@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eca635dcbd2a904bb815b6abfd9e6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 3
+  Health: 30
   IdleHalo: {fileID: 2100000, guid: 1e267a24080f34947ad868a2150a6c49, type: 2}
   AttackHalo: {fileID: 2100000, guid: 8f266107e414fcc4c8e3557a060a3a8b, type: 2}
   Mesh: {fileID: 7580246774649896370}

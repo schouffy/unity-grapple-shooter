@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6801dc35264d0a540b91ba01542af8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 30
   IdleHalo: {fileID: 2100000, guid: 1e267a24080f34947ad868a2150a6c49, type: 2}
   AttackHalo: {fileID: 2100000, guid: 8f266107e414fcc4c8e3557a060a3a8b, type: 2}
   Mesh: {fileID: 6201260039983230377}
@@ -187,7 +187,7 @@ MonoBehaviour:
   AvoidTheseWhenPatrolling:
     serializedVersion: 2
     m_Bits: 1041
-  ExplosionDamage: 5
+  ExplosionDamage: 80
   ExplosionRadius: 5
   AttackSpeed: 6
   VisionLayers:
