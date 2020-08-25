@@ -3,6 +3,13 @@
 
 
 modele arme et grappin
+		PROCESS :
+			Bras :
+			exporter armature en POSE mode et mesh
+			flingue/grappin:
+			passer l'armature correspondante en REST mode, puis exporter seulement MESH
+- animer les doigts quand on tire
+- mains: très clair genre combi en latex avec quelques éléments (lignes, rembours) en noir ou rouge
 - arme: blaster de star wars, ne pas oublier la jauge de chauffe 
 - grappin: affichage rouge/vert, dérouleur sur rotule
 

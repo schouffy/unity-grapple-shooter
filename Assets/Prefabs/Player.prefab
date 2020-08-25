@@ -5840,7 +5840,6 @@ MonoBehaviour:
   ShotEnergyCost: 10
   EnergyRetrievingRate: 30
   CoolDownDelay: 1.5
-  CoolDownRate: 100
   Animator: {fileID: 4661051719323331304}
   CameraShake: {fileID: 3284630604592802245}
   AudioSource: {fileID: 4661051719119396833}
@@ -6667,6 +6666,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8120238488434358599, guid: 2a8d8486ed080224fa416ac5ee3c41f2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b10574c63072ff4dbbd3bbfddf41cb4, type: 2}
     - target: {fileID: 8630908437602571607, guid: 2a8d8486ed080224fa416ac5ee3c41f2,
         type: 3}
       propertyPath: m_Layer
