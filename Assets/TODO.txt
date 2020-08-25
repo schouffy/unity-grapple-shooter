@@ -13,15 +13,6 @@ Contrôles
 
 ================== A faire 
 
-
-Menu principal (scène menu)
-- a polish
-- attention fixe, pas dépendante de la résolution
-
-/!\ curseur apparait figé au milieu sur la build finale
-
-
-
 Draft du level-1
 - tirer en l'air
 - trouver des chemins
@@ -34,6 +25,16 @@ Draft du level-1
 - pouvoir se rattraper quand on tombe
 
 
+Menu principal (scène menu)
+- a polish
+- attention fixe, pas dépendante de la résolution
+
+/!\ curseur apparait figé au milieu sur la build finale
+
+
+
+
+
 polish
 - bruit du joueur qui tape une paroi
 - tirer sur un mur très proche rend pas ouf
@@ -42,7 +43,7 @@ polish
 modele collectible
 
 modele arme et grappin
-- arme: blaster de star wars, ne pas oublier la jauge de chauffe
+- arme: blaster de star wars, ne pas oublier la jauge de chauffe 
 - grappin: affichage rouge/vert, dérouleur sur rotule
 
 modele extraction ship
