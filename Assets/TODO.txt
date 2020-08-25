@@ -2,8 +2,10 @@
 
 
 équilibrage HP/dégâts player et ennemis
-écran checkpoint reached a polish
-écran extraction ship à polish
+
+modele arme et grappin
+- arme: blaster de star wars, ne pas oublier la jauge de chauffe 
+- grappin: affichage rouge/vert, dérouleur sur rotule
 
 
 manque son de collect
@@ -12,8 +14,10 @@ son tir interdit + cooldown débute
 
 
 
+
+
 Draft du level-1
-- tirer en l'air
+- tirer en plein vol
 - trouver des chemins
 - voir des panoramas vertigineux
 - sensation de flow et de fluidité
@@ -38,10 +42,6 @@ quitter le jeu depuis menu principal ou menu pause
 
 modele collectible
 
-
-modele arme et grappin
-- arme: blaster de star wars, ne pas oublier la jauge de chauffe 
-- grappin: affichage rouge/vert, dérouleur sur rotule
 
 
 Ennemis
