@@ -13,12 +13,7 @@ modele arme et grappin
 - arme: blaster de star wars, ne pas oublier la jauge de chauffe 
 - grappin: affichage rouge/vert, dérouleur sur rotule
 
-
-manque son de collect
-son auto regen
-son tir interdit + cooldown débute
-
-
+- corde qui traine quand on s'extract
 
 
 

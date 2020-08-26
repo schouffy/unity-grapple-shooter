@@ -5233,7 +5233,7 @@ MonoBehaviour:
   AimPoint: {fileID: 3626679283768318851}
   HitFx: {fileID: 8300000, guid: 3f26b77d23cf53d4785f8351f8dcc870, type: 3}
   DeathFx: {fileID: 8300000, guid: acc2591a39cedb04494f08bd57b9febb, type: 3}
-  AutoHealFx: {fileID: 8300000, guid: 09f697d650ee2c041af805707fb22905, type: 3}
+  AutoHealFx: {fileID: 8300000, guid: f83bf3ad90a0486428fb7fdb2ecce427, type: 3}
   GameOverFadeToBlackTime: 1
   DelayBeforeStartAutoHeal: 2
   AutoHealRate: 10
@@ -5845,7 +5845,7 @@ MonoBehaviour:
   AudioSource: {fileID: 4661051719119396833}
   BlasterSound: {fileID: 8300000, guid: db9053c61d5ed734d807ee49226e98fd, type: 3}
   NotEnoughEnergyFx: {fileID: 8300000, guid: 53fe2072a485d05418d87da01a1e7ba8, type: 3}
-  CoolDownFx: {fileID: 8300000, guid: 09f697d650ee2c041af805707fb22905, type: 3}
+  CoolDownFx: {fileID: 8300000, guid: 7279d2552c718b0498bb53d4a1823bf0, type: 3}
 --- !u!114 &4661051719323331310
 MonoBehaviour:
   m_ObjectHideFlags: 0
