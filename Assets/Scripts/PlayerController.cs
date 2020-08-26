@@ -165,8 +165,8 @@ public class PlayerController : MonoBehaviour
         this.GetComponentInChildren<HandsSpring>().enabled = false;
         this.GetComponentInChildren<HandsSway>().enabled = false;
         this.GetComponentInChildren<PlayerShooter>().enabled = false;
+        this.GetComponentInChildren<GrapplingHook>().grapplingRope.lineRenderer.enabled = false;
         this.GetComponentInChildren<GrapplingHook>().enabled = false;
-
         this.enabled = false;
     }
 
@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
         this.GetComponentInChildren<HandsSway>().enabled = true;
         this.GetComponentInChildren<PlayerShooter>().enabled = true;
         this.GetComponentInChildren<GrapplingHook>().enabled = true;
+        this.GetComponentInChildren<GrapplingHook>().grapplingRope.lineRenderer.enabled = true;
 
         this.enabled = true;
     }

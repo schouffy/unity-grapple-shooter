@@ -6,8 +6,6 @@ modele arme et grappin
 			flingue/grappin:
 			passer l'armature correspondante en REST mode, puis exporter seulement MESH
 - mains: très clair genre combi en latex avec quelques éléments (lignes, rembours) en noir ou rouge
-- jauge de chauffe du blaster
-- corde qui traine quand on s'extract
 
 
 
