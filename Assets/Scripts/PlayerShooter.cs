@@ -19,6 +19,12 @@ public class PlayerShooter : DisableOnGameOverMonoBehaviour
     public Animator Animator;
     public CameraShake CameraShake;
 
+    [Header("Visual FX")]
+    public MeshRenderer BlasterMesh;
+    public Material EnergyAvailable;
+    public Material EnergyUsed;
+
+
     [Header("Sounds")]
     public AudioSource AudioSource;
     public AudioClip BlasterSound;
@@ -71,5 +77,18 @@ public class PlayerShooter : DisableOnGameOverMonoBehaviour
         {
             AudioSource.PlayOneShot(NotEnoughEnergyFx);
         }
+
+        UpdateBlasterMesh();
+    }
+
+    void UpdateBlasterMesh()
+    {
+        List<Material> materials = new List<Material>() { BlasterMesh.materials[0] };
+        for (int materialStep = 0; materialStep < 100; materialStep += 10)
+        {
+            materials.Add(materialStep < _currentEnergy ? EnergyUsed : EnergyAvailable);
+        }
+
+        BlasterMesh.materials = materials.ToArray();
     }
 }
