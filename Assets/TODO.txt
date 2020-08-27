@@ -1,13 +1,10 @@
 
 modele arme et grappin
-		PROCESS :
-			Bras :
-			exporter armature en POSE mode et mesh
-			flingue/grappin:
-			passer l'armature correspondante en REST mode, puis exporter seulement MESH
-- mains: très clair genre combi en latex avec quelques éléments (lignes, rembours) en noir ou rouge
-- jauge de chauffe du blaster
-- corde qui traine quand on s'extract
+PROCESS :
+	Bras :
+	exporter armature en POSE mode et mesh
+	flingue/grappin:
+	passer l'armature correspondante en REST mode, puis exporter seulement MESH
 
 - augmenter rayon trigger collectible
 
@@ -35,9 +32,6 @@ Menu principal (scène menu)
 
 quitter le jeu depuis menu principal ou menu pause
 
-
-
-modele collectible
 
 
 
