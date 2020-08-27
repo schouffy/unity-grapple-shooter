@@ -188,7 +188,7 @@ MonoBehaviour:
   Speed: 100
   Damage: 10
   Thickness: 0.05
-  MaxLifetime: 0.65
+  MaxLifetime: 0.7
   WhatToHit:
     serializedVersion: 2
     m_Bits: 1025

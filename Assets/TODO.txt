@@ -9,6 +9,8 @@ modele arme et grappin
 - jauge de chauffe du blaster
 - corde qui traine quand on s'extract
 
+- augmenter rayon trigger collectible
+
 
 
 Draft du level-1

@@ -40,7 +40,6 @@ public class BaseFlyingEnemy : EnemyAI
                 return candidate;
             }
         }
-        Debug.Log("Couldn't find a destination point. Skipping.");
         return center;
     }
 
