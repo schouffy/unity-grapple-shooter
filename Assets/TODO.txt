@@ -6,7 +6,6 @@ PROCESS :
 	flingue/grappin:
 	passer l'armature correspondante en REST mode, puis exporter seulement MESH
 
-- augmenter rayon trigger collectible
 
 
 

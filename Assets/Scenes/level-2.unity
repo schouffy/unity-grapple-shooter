@@ -31217,7 +31217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b9e4976599c0d43862ec8259d63112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeToBlackTime: 1
+  FadeToBlackTime: 0
 --- !u!65 &1971956739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34309,7 +34309,7 @@ PrefabInstance:
     - target: {fileID: 5150913449424443669, guid: 5a3aaeefccc8f10408340342598754bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 109.62
+      value: 109.323
       objectReference: {fileID: 0}
     - target: {fileID: 5150913449424443669, guid: 5a3aaeefccc8f10408340342598754bf,
         type: 3}

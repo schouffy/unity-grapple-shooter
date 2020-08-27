@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator _EndLevel(EndLevelEventParam eventParam)
     {
+        RespawnPosition = null;
         if (eventParam != null && eventParam.FadeToBlackTime > 0)
         {
             yield return new WaitForSeconds(eventParam.FadeToBlackTime);
