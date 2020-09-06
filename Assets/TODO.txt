@@ -9,7 +9,7 @@ PROCESS :
 
 
 
-Draft du level-1
+Level design
 - tirer en plein vol
 - trouver des chemins
 - voir des panoramas vertigineux
@@ -22,34 +22,29 @@ Draft du level-1
 
 
 
-
 Menu principal (scène menu)
 - a polish
 - attention fixe, pas dépendante de la résolution
+- trouver un titre
 
 /!\ curseur apparait figé au milieu sur la build finale
 
-quitter le jeu depuis menu principal ou menu pause
+quitter le jeu (menu/desktop) depuis menu principal ou menu pause
 
+outro/écran où je parle de moi (scene)
+icone loading
 
 
 
 Ennemis
 - carcasses et physics
-- regarder la destination de déplacement + lerp la rotation
-- Ajouter de l'imprécision dans les tirs
-- précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
-- zones de spawn
 
-vault/climb ?
 
-polish level 1
 
-level 2
+level-3 ?
+level 4 ?
 
-level 3 ?
-
-outro/écran où je parle de moi
+recalculer lightings
 
 
 
@@ -73,3 +68,10 @@ polish
 - effet visuel quand on se fait toucher (et qui indique la direction d'où on se fait toucher)
 	- Faire comme la flèche qui pointe vers le ship ? en unlit, ça passe.
 	- Plusieurs affichés en simultané ? avec un pivot décalé pour que ça reste lisible ?
+- Ennemis
+	- regarder la destination de déplacement + lerp la rotation
+	- Ajouter de l'imprécision dans les tirs
+	- précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
+	- zones de spawn
+
+vault/climb ?
