@@ -8,32 +8,51 @@ public class MainMenu : MonoBehaviour
 {
     public Image BlackOverlay;
     public GameObject Loading;
+    public GameObject IntroText;
+
+    private static bool _hasSeenIntro = false;
 
     private void Start()
     {
         Time.timeScale = 1;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        if (_hasSeenIntro)
+        {
+            StartCoroutine(FadeToBlack(1f, true));
+        }
+        else
+        {
+            Cursor.visible = false;
+            IntroText.SetActive(true);
+        }
     }
 
-    IEnumerator FadeToBlack(float? fadeToBlackTime)
+    IEnumerator FadeToBlack(float? fadeToBlackTime, bool reverse)
     {
         var color = BlackOverlay.color;
+        float currentTime = 0, startAlpha = 0, endAlpha = 1f;
+
+        if (reverse)
+        {
+            startAlpha = 1f;
+            endAlpha = 0f;
+        }
 
         if (fadeToBlackTime.HasValue && fadeToBlackTime.Value > 0)
         {
-            float currentTime = 0, start = 0;
             while (currentTime < fadeToBlackTime.Value)
             {
                 currentTime += Time.deltaTime;
-                color.a = Mathf.Lerp(start, 1f, currentTime / fadeToBlackTime.Value);
+                color.a = Mathf.Lerp(startAlpha, endAlpha, currentTime / fadeToBlackTime.Value);
                 BlackOverlay.color = color;
                 yield return null;
             }
         }
         else
         {
-            color.a = 1;
+            color.a = endAlpha;
             BlackOverlay.color = color;
         }
     }
@@ -56,7 +75,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator _StartTutorial()
     {
-        yield return FadeToBlack(1f);
+        yield return FadeToBlack(1f, false);
         yield return LoadScene("level-1");
     }
 
@@ -67,12 +86,19 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator _StartGame()
     {
-        yield return FadeToBlack(1f);
+        yield return FadeToBlack(1f, false);
         yield return LoadScene("level-2");
     }
 
     public void ExitToDesktop()
     {
         Application.Quit();
+    }
+
+    public void FadeBlackOut()
+    {
+        _hasSeenIntro = true;
+        StartCoroutine(FadeToBlack(1f, true));
+        Cursor.visible = true;
     }
 }

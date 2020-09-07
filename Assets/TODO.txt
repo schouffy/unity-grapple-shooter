@@ -23,7 +23,8 @@ Level design
 
 
 
-intro/scénario
+
+
 outro/écran où je parle de moi (scene)
 
 Ennemis
@@ -53,7 +54,7 @@ recalculer lightings
 	on s'enfonce en souterrain. Complexe industriel et ligne d'assemblage, cf Half Life et Titanfall 2
 
 - level 3
-	plein d'iles flottantes 
+	plein d'iles flottantes. Niveau de l'eau qui monte, il faut speeder
 
 
 
