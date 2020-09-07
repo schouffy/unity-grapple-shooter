@@ -23,19 +23,11 @@ Level design
 
 
 
-
+intro/scénario
 outro/écran où je parle de moi (scene)
-icone loading
 
 Ennemis
 - carcasses et physics
-
-Menu principal (scène menu)
-- a polish
-- attention fixe, pas dépendante de la résolution
-- trouver un titre
-
-/!\ curseur apparait figé au milieu sur la build finale
 
 
 

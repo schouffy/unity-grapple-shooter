@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         ReloadPlayerPrefs();
         UpdateScore(0);
@@ -188,11 +189,13 @@ public class UIManager : MonoBehaviour
             ExitButton.SetActive(true);
             ExitOptions.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
             PauseScreen.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 

@@ -9,6 +9,13 @@ public class MainMenu : MonoBehaviour
     public Image BlackOverlay;
     public GameObject Loading;
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     IEnumerator FadeToBlack(float? fadeToBlackTime)
     {
         var color = BlackOverlay.color;
@@ -62,5 +69,10 @@ public class MainMenu : MonoBehaviour
     {
         yield return FadeToBlack(1f);
         yield return LoadScene("level-2");
+    }
+
+    public void ExitToDesktop()
+    {
+        Application.Quit();
     }
 }
