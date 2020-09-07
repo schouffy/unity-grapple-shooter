@@ -22,11 +22,6 @@ Level design
 
 
 
-
-
-
-outro/écran où je parle de moi (scene)
-
 Ennemis
 - carcasses et physics
 
