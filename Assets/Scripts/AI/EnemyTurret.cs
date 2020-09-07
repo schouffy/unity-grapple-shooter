@@ -15,6 +15,7 @@ public class EnemyTurret : EnemyAI
     public float RateOfFire;
     public GameObject ImpactPrefab;
     public GameObject ExplosionPrefab;
+    public GameObject DestroyedEnemyPrefab;
     public AudioSource LaserAudioSource;
     public AudioClip LaserSound;
 
@@ -60,6 +61,7 @@ public class EnemyTurret : EnemyAI
     public override void Die()
     {
         Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+        Instantiate(DestroyedEnemyPrefab, transform.position, Quaternion.identity);
         base.Die();
     }
 

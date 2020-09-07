@@ -252,6 +252,8 @@ MonoBehaviour:
     type: 3}
   ExplosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
+  DestroyedEnemyPrefab: {fileID: 8986935476191244098, guid: f90f7b03fd5673e4e9b78e0264017258,
+    type: 3}
   LaserAudioSource: {fileID: 5512609444565831528}
   LaserSound: {fileID: 8300000, guid: 09f697d650ee2c041af805707fb22905, type: 3}
 --- !u!82 &5512609444565831528
