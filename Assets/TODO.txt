@@ -7,8 +7,6 @@ PROCESS :
 	passer l'armature correspondante en REST mode, puis exporter seulement MESH
 
 
-
-
 Level design
 - tirer en plein vol
 - trouver des chemins
@@ -22,6 +20,16 @@ Level design
 
 
 
+
+
+
+
+outro/écran où je parle de moi (scene)
+icone loading
+
+Ennemis
+- carcasses et physics
+
 Menu principal (scène menu)
 - a polish
 - attention fixe, pas dépendante de la résolution
@@ -29,15 +37,11 @@ Menu principal (scène menu)
 
 /!\ curseur apparait figé au milieu sur la build finale
 
-quitter le jeu (menu/desktop) depuis menu principal ou menu pause
-
-outro/écran où je parle de moi (scene)
-icone loading
 
 
 
-Ennemis
-- carcasses et physics
+
+
 
 
 

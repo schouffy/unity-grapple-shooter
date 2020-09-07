@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     public GameObject HurtOverlay;
     public GameObject CollectOverlay;
     public GameObject Loading;
+    public GameObject ExitButton;
+    public GameObject ExitOptions;
     public Image HurtOverlayDamageDirection;
     private int? _currentHealth;
     public Text Health;
@@ -183,6 +185,8 @@ public class UIManager : MonoBehaviour
         {
             ReloadPlayerPrefs();
             PauseScreen.SetActive(true);
+            ExitButton.SetActive(true);
+            ExitOptions.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
         }
         else
@@ -207,6 +211,22 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetFloat(Constants.PlayerPrefs.MouseSensitivityY, MouseSensitivityY.value);
 
         EventManager.TriggerEvent(EventType.PlayerPrefsUpdated, null);
+    }
+
+    public void ClickExit()
+    {
+        ExitButton.SetActive(false);
+        ExitOptions.SetActive(true);
+    }
+
+    public void ClickExitToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void ClickExitToDesktop()
+    {
+        Application.Quit();
     }
 
 }
