@@ -7,6 +7,19 @@ public class DeathZone : PlayerTriggerZone
     private bool _alreadyEntered;
     public float FadeToBlackTime;
 
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
+        if (other.gameObject.tag != Constants.PlayerTag)
+        {
+            if (other.gameObject.GetComponent<EnemyAI>() != null)
+            {
+                other.gameObject.GetComponent<EnemyAI>().Die();
+            }
+        }
+    }
+
     public override void OnPlayerEnter(GameObject player)
     {
         if (_alreadyEntered)

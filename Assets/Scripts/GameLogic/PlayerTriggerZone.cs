@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PlayerTriggerZone : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == Constants.PlayerTag)
         {

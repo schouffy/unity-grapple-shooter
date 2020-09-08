@@ -22,17 +22,6 @@ Level design
 
 
 
-Ennemis
-- carcasses et physics
-
-
-
-
-
-
-
-
-
 level-3 ?
 level 4 ?
 
@@ -41,9 +30,6 @@ recalculer lightings
 
 
 
-
-- level 1
-	grande tour centrale qu'on peut grimper de plusieurs façons différentes. Entourée de batiments en bas, et quelques trucs flottants sur la montée
 
 - level 2
 	on s'enfonce en souterrain. Complexe industriel et ligne d'assemblage, cf Half Life et Titanfall 2
@@ -65,5 +51,6 @@ polish
 	- Ajouter de l'imprécision dans les tirs
 	- précision des ennemis variable en fonction de : s'il nous voit ou pas, vitesse de déplacement, sur grappin,..
 	- zones de spawn
+- on traverse le sol quand on tombe trop vite
 
 vault/climb ?
