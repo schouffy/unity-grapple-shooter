@@ -22,22 +22,6 @@ Level design
 
 
 
-level-3 ?
-level 4 ?
-
-recalculer lightings
-
-
-
-
-
-- level 2
-	on s'enfonce en souterrain. Complexe industriel et ligne d'assemblage, cf Half Life et Titanfall 2
-
-- level 3
-	plein d'iles flottantes. Niveau de l'eau qui monte, il faut speeder
-
-
 
 
 polish
