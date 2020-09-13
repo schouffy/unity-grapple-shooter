@@ -108,6 +108,7 @@ public class MainMenu : MonoBehaviour
     public void FadeBlackOut()
     {
         _hasSeenIntro = true;
+        IntroText.SetActive(false);
         StartCoroutine(FadeToBlack(1f, true));
         Cursor.visible = true;
     }
