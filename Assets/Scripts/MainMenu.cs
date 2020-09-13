@@ -29,6 +29,15 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(FadeToBlack(1f, true));
+            IntroText.SetActive(false);
+        }
+    }
+
     IEnumerator FadeToBlack(float? fadeToBlackTime, bool reverse)
     {
         var color = BlackOverlay.color;
@@ -55,6 +64,8 @@ public class MainMenu : MonoBehaviour
             color.a = endAlpha;
             BlackOverlay.color = color;
         }
+
+        BlackOverlay.gameObject.SetActive(!reverse);
     }
 
     IEnumerator LoadScene(string scene)
