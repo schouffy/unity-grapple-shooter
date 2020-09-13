@@ -33,8 +33,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            StartCoroutine(FadeToBlack(1f, true));
-            IntroText.SetActive(false);
+            FadeBlackOut();
         }
     }
 
